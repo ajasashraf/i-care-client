@@ -21,7 +21,7 @@ const Dashboard = () => {
   const [appointmentCount, setAppointmentCount] = useState("");
   const [userGraph, setUserGraph] = useState([]);
   const [appointmentGraph, setAppointmentGraph] = useState([]);
-  const [err,Navigate] = useState("");
+  const [err, Navigate] = useState("");
   useEffect(() => {
     changeLoading(true);
     const token = localStorage.getItem("adminToken");

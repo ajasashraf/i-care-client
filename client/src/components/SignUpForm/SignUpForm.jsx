@@ -341,7 +341,10 @@ const SignUpForm = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block mb-2 text-sm text-gray-600">
+                  <label
+                    htmlFor="email"
+                    className="block mb-2 text-sm text-gray-600"
+                  >
                     Email address
                   </label>
                   <input
@@ -403,7 +406,10 @@ const SignUpForm = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="confirmpassword" className="block mb-2 text-sm text-gray-600 ">
+                  <label
+                    htmlFor="confirmpassword"
+                    className="block mb-2 text-sm text-gray-600 "
+                  >
                     Confirm password
                   </label>
                   <input
@@ -473,7 +479,10 @@ const SignUpForm = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block mb-2 text-sm text-gray-600">
+                  <label
+                    htmlFor="phone"
+                    className="block mb-2 text-sm text-gray-600"
+                  >
                     Phone number
                   </label>
                   <input
@@ -503,7 +512,10 @@ const SignUpForm = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block mb-2 text-sm text-gray-600 ">
+                  <label
+                    htmlFor="email"
+                    className="block mb-2 text-sm text-gray-600 "
+                  >
                     Email address
                   </label>
                   <input
@@ -515,7 +527,10 @@ const SignUpForm = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="dob" className="block mb-2 text-sm text-gray-600 ">
+                  <label
+                    htmlFor="dob"
+                    className="block mb-2 text-sm text-gray-600 "
+                  >
                     DOB
                   </label>
                   <input
@@ -558,7 +573,10 @@ const SignUpForm = () => {
                   )}
                 </div>
                 <div>
-                  <label htmlFor="department"className="block mb-2 text-sm text-gray-600">
+                  <label
+                    htmlFor="department"
+                    className="block mb-2 text-sm text-gray-600"
+                  >
                     Department
                   </label>
                   <select
@@ -640,7 +658,10 @@ const SignUpForm = () => {
                   )}
                 </div>
                 <div>
-                  <label htmlFor="certificate" className="block mb-2 text-sm text-gray-600">
+                  <label
+                    htmlFor="certificate"
+                    className="block mb-2 text-sm text-gray-600"
+                  >
                     Upload Certificates
                   </label>
                   <input
@@ -654,7 +675,10 @@ const SignUpForm = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="password" className="block mb-2 text-sm text-gray-600 ">
+                  <label
+                    htmlFor="password"
+                    className="block mb-2 text-sm text-gray-600 "
+                  >
                     Password
                   </label>
                   <input
@@ -683,7 +707,10 @@ const SignUpForm = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="confirmpassword" className="block mb-2 text-sm text-gray-600 ">
+                  <label
+                    htmlFor="confirmpassword"
+                    className="block mb-2 text-sm text-gray-600 "
+                  >
                     Confirm password
                   </label>
                   <input
@@ -718,7 +745,10 @@ const SignUpForm = () => {
                 onSubmit={verifyOtpAndSignUp}
               >
                 <div>
-                  <label htmlFor="otp" className="block mb-2 text-sm text-gray-400">
+                  <label
+                    htmlFor="otp"
+                    className="block mb-2 text-sm text-gray-400"
+                  >
                     Otp
                   </label>
                   <input
@@ -771,7 +801,10 @@ const SignUpForm = () => {
                 onSubmit={doctorSignUp}
               >
                 <div>
-                  <label htmlFor="otp" className="block mb-2 text-sm text-gray-400">
+                  <label
+                    htmlFor="otp"
+                    className="block mb-2 text-sm text-gray-400"
+                  >
                     Otp
                   </label>
                   <input

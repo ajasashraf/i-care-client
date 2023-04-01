@@ -63,7 +63,6 @@ function AddDepartment() {
         className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2"
         onSubmit={addDepartment}
       >
-        
         <div>
           <label
             htmlFor="addDepartment"
@@ -91,7 +90,7 @@ function AddDepartment() {
           />
           {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
         </div>
-      
+
         <div>
           <label
             htmlFor="Description"
@@ -119,7 +118,7 @@ function AddDepartment() {
           />
           {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
         </div>
-        
+
         <div>
           <label
             htmlFor="diseases"

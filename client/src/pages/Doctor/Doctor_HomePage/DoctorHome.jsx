@@ -1,4 +1,3 @@
-
 import React from "react";
 // import { doctorUrl } from "../../../../apiLinks/apiLinks";
 import DoctorBanner from "../../../components/DoctorBanner/DoctorBanner";

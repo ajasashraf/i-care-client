@@ -20,7 +20,6 @@ import AdminRoutes from "./pvtRoutes/AdminRoutes";
 import DoctorList from "./pages/User/DoctorViewingPage/DoctorList";
 
 function App() {
- 
   return (
     <Router>
       <Routes>

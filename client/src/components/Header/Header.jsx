@@ -66,7 +66,7 @@ function Header() {
   const navRef = useRef();
   const Navigate = useNavigate();
   const [open, SetOpen] = useState(false);
-  const { user,setUser } = useContext(userContext);
+  const { user, setUser } = useContext(userContext);
   const [anchorEl, setAnchorEl] = useState(null);
   const dropDown = Boolean(anchorEl);
   const userLogOut = () => {

@@ -10,7 +10,7 @@ function DoctorList() {
   const [doctorData, setDoctorData] = useState([]);
   const [reload, setReload] = useState(false);
   const Navigate = useNavigate();
-  
+
   let token = localStorage.getItem("adminToken");
   useEffect(() => {
     token = localStorage.getItem("adminToken");

@@ -1,6 +1,5 @@
-
-import React, { createContext,  useState } from "react";
-import {  Toaster } from "react-hot-toast";
+import React, { createContext, useState } from "react";
+import { Toaster } from "react-hot-toast";
 // import { useNavigate } from "react-router-dom";
 // import { doctorUrl } from "../../../../apiLinks/apiLinks";
 import DoctorProfile from "../../../components/DoctorProfile/DoctorProfile";

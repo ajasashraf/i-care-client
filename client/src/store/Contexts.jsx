@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect} from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { signInWithGoogle } from "../firebase/config";
 import axios from "axios";
 import { doctorUrl, userUrl } from "../../apiLinks/apiLinks";

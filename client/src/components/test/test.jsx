@@ -44,7 +44,10 @@ function Test() {
       <div className="container my-12 mx-auto px-4 md:px-12 lg:w-4/5 sm:w-full ">
         <div className="flex flex-wrap -mx-1 lg:-mx-4">
           {Departments.map((Department) => (
-            <div key={Department.id} className="my-1 px-3 w-full md:w-1/2 lg:my-4 lg:px-3  xl:w-1/4 cursor-pointer hover:scale-105 ease-in-out duration-200">
+            <div
+              key={Department.id}
+              className="my-1 px-3 w-full md:w-1/2 lg:my-4 lg:px-3  xl:w-1/4 cursor-pointer hover:scale-105 ease-in-out duration-200"
+            >
               <article className="overflow-hidden rounded-lg shadow-lg bg-white hover:bg-blue-50 h-[auto]">
                 <div className="flex items-center justify-center leading-tight p-2 md:p-4">
                   <a href="#">

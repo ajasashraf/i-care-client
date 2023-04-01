@@ -5,7 +5,6 @@ import { FaRegClock } from "react-icons/fa"; // import clock icon from react-ico
 import { useNavigate, useLocation } from "react-router-dom";
 import { doctorUrl } from "../../../../apiLinks/apiLinks";
 
-
 function RejectedPage() {
   const Navigate = useNavigate();
   const location = useLocation();

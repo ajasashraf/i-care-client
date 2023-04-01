@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { userUrl } from "../../../apiLinks/apiLinks";
 
 const Wallet = () => {
-  const [ setBalance] = useState(0);
+  const [setBalance] = useState(0);
   const [transactionHistory, setTransactionHistory] = useState([]);
 
   useEffect(() => {

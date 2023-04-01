@@ -106,7 +106,6 @@ const DoctorSinglePage = () => {
             <ul className="divide-y divide-gray-200">
               {doctor?.timings?.map((timing) => {
                 return (
-                  
                   <li key={timing.id} className="py-3">
                     <div className="flex justify-between">
                       <div className="flex items-center">

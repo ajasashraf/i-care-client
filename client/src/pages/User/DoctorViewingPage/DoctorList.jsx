@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import {  Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import List from "../../../components/DoctorsViewUser/DoctorsViewUser";

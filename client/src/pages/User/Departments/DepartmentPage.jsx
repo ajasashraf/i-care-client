@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect} from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import DepartmentSection from "../../../components/DepartmentSection/DepartmentSection";
 import Footer from "../../../components/Footer/Footer";
