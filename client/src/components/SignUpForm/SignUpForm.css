@@ -1,12 +1,12 @@
 .sign-up{
-    background-color: #06B6D4;
+    background-color: rgb(21 94 117);
     color: white;
 }
 .sign-up:hover{
-    background-color:#66A1FD ;
+    background-color:#7e858d ;
 }
 .worker:hover{
-    background-color:#66A1FD ;
+    background-color:#7e858d ;
     color: #fff;
 }
 .hide-acount-type{

@@ -73,7 +73,7 @@ const SignInForm = () => {
           setUser("doctor");
           Navigate("/doctor/profile");
         }
-        response.data.status === "pending" && Navigate("/doctor/verification");
+        response.data.status === "pending" && toast.error("Under Verifcation");
         response.data.status === "rejected" &&
           Navigate("/doctor/rejected", { state: { id: response.data.id } });
         response.data.status === "error" && toast.error("invalid password");
@@ -288,10 +288,10 @@ const SignInForm = () => {
                   <span>Sign in with Google</span>
                 </button>
                 <p
-                  className="text-primary cursor-pointer"
+                  className="text-primary cursor-pointer mt-2"
                   onClick={() => setSignInForm("forgot-pass")}
                 >
-                  forgot password ?
+                  Forgot password ?
                 </p>
               </>
             )}

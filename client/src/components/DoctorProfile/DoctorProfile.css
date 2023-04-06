@@ -1,12 +1,12 @@
 .active-nav{
-    background-color: #0AB3B8;
+    background-color: rgb(21 94 117);
     color: white;
 }
 .doctor-profile-nav:hover{
-    background-color: #66A1FD;
+    background-color: rgb(107 114 128);
 }
 .active-nav:hover{
-    background-color: #66A1FD;
+    background-color: #a0aec0;
     
 }
 .doctor-profile-nav{

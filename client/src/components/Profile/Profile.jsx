@@ -10,6 +10,12 @@ import {
 } from "@heroicons/react/outline";
 import axios from "axios";
 import { userUrl } from "../../../apiLinks/apiLinks";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState("profile");
@@ -25,6 +31,8 @@ const Profile = () => {
   const Navigate = useNavigate();
   const token = localStorage.getItem("userToken");
   const headers = { Authorization: token };
+  const [open, setOpen] = useState(false);
+  const [appointmentId, setAppointmentId] = useState("");
   const err = useState("");
   useEffect(() => {
     setLoading(true);
@@ -97,6 +105,23 @@ const Profile = () => {
             : toast.error("something went wrong");
         });
     };
+  };
+  const cancelAppointmentMenu = (id) => {
+    setAppointmentId(id);
+    setOpen(true);
+  };
+  const cancelAppointment = () => {
+    axios
+      .get(`${userUrl}cancelAppointment?appointmentId=${appointmentId}`, {
+        headers,
+      })
+      .then((response) => {
+        response.data.cancel && setResetPage((resetPage) => !resetPage);
+        setOpen(false);
+        response.data.cancel
+          ? toast.success("Appointment Cancelled")
+          : toast.error("Cannot Cancel the appointement please try again");
+      });
   };
 
   const renderTabContent = () => {
@@ -268,6 +293,12 @@ const Profile = () => {
                   {appointment?.slot}
                 </a>
               </p>
+              <button
+                className="bg-red  text-blue-700 font-semibold hover:text-blue-400   border-none border-blue-500 hover:border-transparent rounded "
+                onClick={() => cancelAppointmentMenu(appointment._id)}
+              >
+                  Cancel
+              </button>
             </div>
           ))}
         </div>
@@ -341,6 +372,27 @@ const Profile = () => {
   return (
     <>
       <Toaster />
+      <Dialog
+        open={open}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+        onClose={() => setOpen(false)}
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Cancel Appointment ?"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            Are you sure you want to cancel appointment ?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpen(false)}>Disagree</Button>
+          <Button autoFocus onClick={cancelAppointment}>
+            Agree
+          </Button>
+        </DialogActions>
+      </Dialog>
       {loading && (
         <div className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center bg-gray-500 bg-opacity-50 z-50">
           <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-gray-900"></div>

@@ -79,7 +79,7 @@ const DepartmentSection = ({ departmentsData }) => {
                         tabIndex={0}
                         role="button"
                       >
-                        <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-cyan-500 dark:hover:bg-blue-500 dark:focus:ring-cyan-800">
+                        <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-cyan-800 dark:hover:bg-gray-500 dark:focus:ring-cyan-800">
                           View Doctors
                           <svg
                             aria-hidden="true"

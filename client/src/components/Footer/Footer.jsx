@@ -3,88 +3,29 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <footer className="relative footer-main pt-8 pb-6 mt-1">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap text-left lg:text-left">
-          <div className="w-full lg:w-6/12 px-4">
-            <h4 className="text-3xl fonat-semibold text-blueGray-700">
-              Let`s keep in touch!
-            </h4>
-            <h5 className="text-lg mt-0 mb-2 text-blueGray-600">
-              Find us on any of these platforms, we respond 1-2 business days.
-            </h5>
-            <div className="mt-6 lg:mb-0 mb-6">
-              <button
-                className="bg-white text-lightBlue-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-              >
-                <i className="fab fa-twitter"></i>
-              </button>
-              <button
-                className="bg-white text-lightBlue-600 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-              >
-                <i className="fab fa-facebook-square"></i>
-              </button>
-              <button
-                className="bg-white text-pink-400 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-              >
-                <i className="fab fa-dribbble"></i>
-              </button>
-              <button
-                className="bg-white text-blueGray-800 shadow-lg font-normal h-10 w-10 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2"
-                type="button"
-              >
-                <i className="fab fa-github"></i>
-              </button>
-            </div>
-          </div>
-          <div className="w-full lg:w-6/12 px-4">
-            <div className="flex flex-wrap items-top mb-6">
-              <div className="w-full lg:w-4/12 px-4 ml-auto">
-                <span className="block uppercase text-blueGray-500 text-sm font-semibold mb-2">
-                  Useful Links
-                </span>
-                <ul className="list-unstyled">
-                  <li>
-                    <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm">
-                      About Us
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm">
-                      Blog
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm">
-                      Github
-                    </a>
-                  </li>
-                  <li>
-                    <a className="text-blueGray-600 hover:text-blueGray-800 font-semibold block pb-2 text-sm">
-                      Free Products
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
+    <footer className=" bg-cyan-800 shadow w-full ">
+      <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
+        <div className="sm:flex sm:items-center sm:justify-between">
+          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
+            i-care
+          </span>
+
+          <ul className="flex flex-wrap items-center mb-6 text-sm font-medium text-white sm:mb-0 dark:text-black">
+            <li className="mr-4 hover:underline md:mr-6">About</li>
+            <li className="mr-4 hover:underline md:mr-6">Privacy Policy</li>
+            <li className="mr-4 hover:underline md:mr-6">Licensing</li>
+            <li className="mr-4 hover:underline md:mr-6">Contact</li>
+          </ul>
         </div>
-        <hr className="my-6 border-blueGray-300" />
-        <div className="flex flex-wrap items-center md:justify-between justify-center">
-          <div className="w-full md:w-4/12 px-4 mx-auto text-center">
-            <div className="text-sm text-blueGray-500 font-semibold py-1">
-              Copyright © <span id="get-current-year">2021</span>
-              <a className="text-blueGray-500 hover:text-gray-800"> by </a>
-              <a className="text-blueGray-500 hover:text-blueGray-800">
-                E-care
-              </a>
-              .
-            </div>
-          </div>
+        <div className="text-white">
+          Contact Us
+          <br></br> Phone: 7554477888
+          <br></br>Email: ecare0001@gmail.com
         </div>
+        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-black lg:my-8" />
+        <span className="block text-sm text-white sm:text-center dark:text-black">
+          © 2023 i-care™ All Rights Reserved.
+        </span>
       </div>
     </footer>
   );

@@ -1,7 +1,13 @@
 import React from "react";
 import { FaRegClock } from "react-icons/fa"; // import clock icon from react-icons/fa
 
+import { useNavigate } from "react-router-dom";
+
 function ProfileVerification() {
+  const Navigate = useNavigate();
+  const handleSignInClick = () => {
+    Navigate("/signin");
+  }
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gray-100">
       <div className="bg-white p-6 rounded-md shadow-md flex flex-col items-center justify-center space-y-6">
@@ -19,6 +25,12 @@ function ProfileVerification() {
           In the meantime, please ensure that your profile information is up to
           date and accurate.
         </p>
+        <button
+          onClick={handleSignInClick}
+          className="bg-cyan-800 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded"
+        >
+          Back to Signin
+        </button>
         {/* <button
           className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
           onClick={() => console.log("Resend Verification Email")}

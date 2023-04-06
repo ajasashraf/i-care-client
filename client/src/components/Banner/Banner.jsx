@@ -43,21 +43,22 @@ function Banner() {
   };
 
   return (
+    
     <div
-      className="hero"
+      className="hero "
       style={{ backgroundImage: `url(${slides[slideIndex].image})` }}
     >
       <div className="hero-text-container ">
         <h1 className="hero-title">{slides[slideIndex].title}</h1>
         <p className="hero-subtitle">{slides[slideIndex].subtitle}</p>
         <button
-          className="hero-button prev-button bg-cyan-500"
+          className="hero-button prev-button bg-cyan-800"
           onClick={goToPrevSlide}
         >
           &#10094;
         </button>
         <button
-          className="hero-button next-button bg-cyan-500"
+          className="hero-button next-button bg-cyan-800"
           onClick={goToNextSlide}
         >
           &#10095;

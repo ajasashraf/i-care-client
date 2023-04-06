@@ -4,8 +4,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        mainColor: "#0AB3B8",
-        secColor: "#66A1FD",
+        mainColor: "#00838f",
+        secColor: "#a0aec0",
         textBlue: "#00468b",
       },
     },

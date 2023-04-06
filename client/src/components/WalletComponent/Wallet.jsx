@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { userUrl } from "../../../apiLinks/apiLinks";
 
 const Wallet = () => {
-  const [setBalance] = useState(0);
+  const [balance,setBalance] = useState(0);
   const [transactionHistory, setTransactionHistory] = useState([]);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const Wallet = () => {
       <div className="flex flex-col sm:flex-row items-center sm:justify-between mb-6 sm:mb-8 md:mb-10 lg:mb-12">
         <div className="mb-2 sm:mb-0">
           <p className="text-gray-600 font-semibold">Balance:</p>
-          <p className="text-2xl font-bold">₹700</p>
+          <p className="text-2xl font-bold">₹{balance ? balance : 0}</p>
         </div>
         {/* <button
           onClick={() => handleAddMoney(50)}

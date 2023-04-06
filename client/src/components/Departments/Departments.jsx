@@ -79,7 +79,7 @@ function Departments() {
                 <div className="department-description mt-3">
                   <p>{selectedDepartment.description}</p>
                   <button
-                    className="btn book-btn mt-3 bg-cyan-500 "
+                    className="btn book-btn mt-3 bg-cyan-800 "
                     onClick={() => Navigate("/book")}
                   >
                     Book an appointment

@@ -1,3 +1,4 @@
+/* eslint-disable linebreak-style */
 import React, { useState, useEffect } from "react";
 import "./SignUpForm.css";
 import { useNavigate } from "react-router-dom";
@@ -146,7 +147,7 @@ const SignUpForm = () => {
         .post(`${doctorUrl}signUp`, { doctorData, otp, imageData })
         .then((response) => {
           response.data.signUp
-            ? Navigate("/signIn")
+            ? Navigate("/doctor/verification")
             : toast.error("Invalid otp");
         })
         .catch(() => {

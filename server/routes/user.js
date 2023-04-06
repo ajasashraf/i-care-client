@@ -20,6 +20,8 @@ import {
   userCheck,
   verifyOtpAndSignUp,
   verifyPayment,
+  payWithWallet,
+  cancelAppointment
 } from "../controllers/userControllers.js";
 
 import { userAuthentication } from "../middlewares/Authentications.js";
@@ -43,5 +45,6 @@ router.post("/editProfilePic", userAuthentication, editProfilePic);
 router.get("/getAppointments", userAuthentication, getAppointmentsUser);
 router.get("/getAppointmentHistory", userAuthentication, getAppointmentHistory);
 router.get("/getWallet", userAuthentication, getWallet);
-
+router.get("/payWithWallet", userAuthentication, payWithWallet);
+router.get("/cancelAppointment", userAuthentication, cancelAppointment);
 export default router;

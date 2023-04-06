@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB64RG-rc4sbcIOdRyMkO0gwVKqEufiW5k",
-  authDomain: "e-care-d9e6a.firebaseapp.com",
-  projectId: "e-care-d9e6a",
-  storageBucket: "e-care-d9e6a.appspot.com",
-  messagingSenderId: "483062788212",
-  appId: "1:483062788212:web:4a66dd8ee045d605a72121",
-  measurementId: "G-SJC57DNPHD",
+  apiKey: "AIzaSyCPvKhk-eA03n_-D0rTJn8THvtaXh9tCTQ",
+  authDomain: "e-care-24448.firebaseapp.com",
+  projectId: "e-care-24448",
+  storageBucket: "e-care-24448.appspot.com",
+  messagingSenderId: "1014759413829",
+  appId: "1:1014759413829:web:5ecd5c109a002068a02b2c",
+  measurementId: "G-S8R1JXMDX9"
 };
 
 // Initialize Firebase

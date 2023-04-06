@@ -88,8 +88,8 @@ function Header() {
         <header>
           <div className="logoDiv">
             <img
-              className="logo"
-              src="\Images\e-care-high-resolution-logo-color-on-transparent-background (1).png"
+              className="ml-28 "
+              src="\Images\i-care-low-resolution-logo-white-on-transparent-background.png"
               alt=""
               height={100}
               width={100}

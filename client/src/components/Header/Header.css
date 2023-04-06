@@ -9,7 +9,7 @@
 }
 
 :root {
-	--mainColor: #06B6D4;
+	--mainColor: rgb(21 94 117);;
 	--mainColorLight: #5767aa;
 	--secondaryColor: #db2b39;
 	--textColor: #eee;
@@ -28,7 +28,7 @@ header {
 
 nav a {
 	margin: 1.3rem;
-	color: #000000;
+	color: #ffffff;
 	text-decoration: none;
     font-size: 13px;
 	font-weight: 500;
@@ -37,7 +37,7 @@ nav a {
 }
 
 nav a:hover {
-	color: #00468b;
+	color: #a0aec0;
 }
 
 header .nav-btn {
@@ -56,7 +56,7 @@ header div,
 nav {
 	display: flex;
 	align-items: center;
-    margin-left:;
+   
 }
 
 @media only screen and (max-width: 1100px) {
@@ -97,7 +97,7 @@ nav {
 	nav a {
 		font-size: 1.1rem;
 	}
-    .logoDiv{
+    /* .logoDiv{
         background-color: #ffff;
         width: 52%;
         height: 100%;
@@ -112,7 +112,7 @@ nav {
     .logo{
         margin-left:10%;
         transform: skew(30deg);
-    }
+    } */
     .login{
         display: block;
     }
@@ -124,20 +124,9 @@ nav {
 
 }
 @media only screen and (min-width:1100px) {
-    .logoDiv{
-        background-color: #ffff;
+    .logoDiv{   
         width: 30%;
         height: 100%;
-        align-self: start;
-        justify-content: center;
-        transform: skew(-30deg);
-        position: relative;
-        right: 4rem;    
-    }
-
-    .logo{
-
-        transform: skew(30deg);
     }
     .navMar{
         margin-left: 10%;

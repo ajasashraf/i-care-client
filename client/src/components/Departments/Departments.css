@@ -47,11 +47,11 @@
   }
   
   .department-list li:hover {
-    background-color: #06B6D4;
+    background-color: #7e858d;
   }
   
   .department-list li.active {
-    background-color: #06B6D4;
+    background-color: rgb(21 94 117);
     color: #fff;
   }
   
