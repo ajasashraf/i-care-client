@@ -8,13 +8,11 @@ import departmentModel from "../model/departmentModel.js";
 import doctorModel from "../model/doctorSchema.js";
 import appointmentModel from "../model/appointmentSchema.js";
 import { checkingSlotsAvailability } from "./helpers/helpers.js";
-import mongoose from "mongoose";
 import crypto from "crypto";
 import cloudinary from "../utils/cloudinary.js";
 import Razorpay from "razorpay";
 import walletModel from "../model/walletSchema.js";
 import walletTransactionModel from "../model/walletTransactionsSchem.js";
-import { response } from "express";
 export let otpVerify;
 
 export const sendOtp = (req, res) => {
@@ -338,13 +336,11 @@ export const bookAppoinment = (req, res) => {
                   price: amount,
                 });
                 newAppointment.save().then((appointment) => {
-                  res
-                    .status(200)
-                    .json({
-                      available: "available",
-                      appointmentId: appointment._id,
-                      price: amount,
-                    });
+                  res.status(200).json({
+                    available: "available",
+                    appointmentId: appointment._id,
+                    price: amount,
+                  });
                 });
               }
             });
@@ -442,20 +438,18 @@ export const editProfile = (req, res) => {
 export const editProfilePic = (req, res) => {
   try {
     const image = req.body.imageData;
-    cloudinary.uploader
-      .upload(image, { upload_preset: "Ecare" })
-      .then((imageData) => {
-        userModel
-          .updateOne(
-            { _id: req.userLogged },
-            { $set: { profilePic: imageData.secure_url } }
-          )
-          .then((result) => {
-            result.acknowledged
-              ? res.status(200).json({ result: true })
-              : res.status(500);
-          });
-      });
+    cloudinary.uploader.upload(image).then((imageData) => {
+      userModel
+        .updateOne(
+          { _id: req.userLogged },
+          { $set: { profilePic: imageData.secure_url } }
+        )
+        .then((result) => {
+          result.acknowledged
+            ? res.status(200).json({ result: true })
+            : res.status(500);
+        });
+    });
   } catch (err) {
     res.status(500);
   }
@@ -502,96 +496,102 @@ export const getWallet = (req, res) => {
 };
 export const payWithWallet = (req, res) => {
   try {
-      const appointmentId = req.query.appointmentId
-      appointmentModel
-          .findOne({ _id: appointmentId })
-          .then((appointment) => {
-              walletModel
-                  .findOne({ userId: req.userLogged })
-                  .then((wallet) => {
-                      if (wallet.balance < appointment.price) {
-                          res.status(200).json({ payment: 'noBalance' })
-                      } else {
-                          let newTransaction = new walletTransactionModel({
-                              amount: appointment.price,
-                              transactionType: 'debit'
-                          })
-                          newTransaction
-                              .save()
-                              .then((transaction) => {
-                                  walletModel
-                                      .updateOne({ userId: req.userLogged }, {
-                                          $push: {
-                                              transactions: transaction._id
-                                          },
-                                          $inc: {
-                                              balance: -transaction.amount
-                                          }
-                                      })
-                                      .then(() => {
-                                          appointmentModel
-                                              .updateOne({ _id: appointmentId }, {
-                                                  $set: {
-                                                      paymentStatus: true,
-                                                      paymentId: transaction._id
-                                                  }
-                                              })
-                                              .then((update) => {
-                                                  update.acknowledged ? res.status(200).json({ payment: 'success' }) : res.status(500)
-                                              })
-                                      })
-                              })
-                      }
-                  })
-          })
+    const appointmentId = req.query.appointmentId;
+    appointmentModel.findOne({ _id: appointmentId }).then((appointment) => {
+      walletModel.findOne({ userId: req.userLogged }).then((wallet) => {
+        if (wallet.balance < appointment.price) {
+          res.status(200).json({ payment: "noBalance" });
+        } else {
+          let newTransaction = new walletTransactionModel({
+            amount: appointment.price,
+            transactionType: "debit",
+          });
+          newTransaction.save().then((transaction) => {
+            walletModel
+              .updateOne(
+                { userId: req.userLogged },
+                {
+                  $push: {
+                    transactions: transaction._id,
+                  },
+                  $inc: {
+                    balance: -transaction.amount,
+                  },
+                }
+              )
+              .then(() => {
+                appointmentModel
+                  .updateOne(
+                    { _id: appointmentId },
+                    {
+                      $set: {
+                        paymentStatus: true,
+                        paymentId: transaction._id,
+                      },
+                    }
+                  )
+                  .then((update) => {
+                    update.acknowledged
+                      ? res.status(200).json({ payment: "success" })
+                      : res.status(500);
+                  });
+              });
+          });
+        }
+      });
+    });
+  } catch (err) {
+    res.status(500);
   }
-  catch (err) {
-      res.status(500)
-  }
-}
-
+};
 
 export const cancelAppointment = (req, res) => {
   try {
-      const appointmentId = req.query.appointmentId
-      console.log(appointmentId);
-      appointmentModel
-          .findOne({ _id: appointmentId })
-          .then((appointment) => {
-              let transaction = new walletTransactionModel({
-                  amount: appointment.price,
-                  transactionType: 'credit'
-              })
-              transaction
-                  .save()
-                  .then((transaction) => {
-                      walletModel
-                          .updateOne({ userId: req.userLogged }, {
-                              $inc: {
-                                  balance: appointment.price
-                              },
-                              $push: {
-                                  transactions: transaction._id
-                              }
-                          })
-                          .then(() => {
-                              appointmentModel
-                                  .updateOne({ _id: appointmentId }, {
-                                      $set: {
-                                          status: 'cancelled'
-                                      }
-                                  })
-                                  .then((update) => {
-                                      update.acknowledged ? res.status(200).json({ cancel: true }) : res.status(200)
-                                  })
-                          })
-                  })
-
-          })
-  } 
-  catch (err) {
-      res.status(500)
+    const appointmentId = req.query.appointmentId;
+    console.log(appointmentId);
+    appointmentModel.findOne({ _id: appointmentId }).then((appointment) => {
+      let transaction = new walletTransactionModel({
+        amount: appointment.price,
+        transactionType: "credit",
+      });
+      console.log("hellll",appointment.price )
+      transaction.save().then((transaction) => {
+  
+        walletModel
+          .updateOne(
+            { userId: req.userLogged },
+            {
+              $inc: {
+                balance: appointment.price,
+              },
+              $push: {
+                transactions: transaction._id,
+              },
+            },
+            {upsert:true}
+           
+          )
+          .then(() => {
+            
+            appointmentModel
+              .updateOne(
+                { _id: appointmentId },
+                {
+                  $set: {
+                    status: "cancelled",
+                  },
+                }
+              )
+              .then((update) => {
+                update.acknowledged
+                  ? res.status(200).json({ cancel: true })
+                  : res.status(200);
+              });
+          });
+         
+      });
+    });
+  } catch (err) {
+    res.status(500);
   }
-
-}
-
+};

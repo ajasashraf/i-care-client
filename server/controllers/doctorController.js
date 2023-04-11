@@ -236,7 +236,14 @@ export const timeSlots = (req, res) => {
     checkSlots(slots, req.doctorLogged).then((check) => {
       if (!check) {
         doctorModel
-          .updateOne({ _id: req.doctorLogged }, { $push: { timings: slots } })
+          .updateOne(
+            { _id: req.doctorLogged },
+            {
+              $push: {
+                timings: slots,
+              },
+            }
+          )
           .then((update) => {
             update.acknowledged
               ? (response.status = true)
@@ -257,9 +264,15 @@ export const deleteSlot = (req, res) => {
   try {
     const data = req.body.data;
     let response = {};
-
     doctorModel
-      .updateOne({ _id: req.doctorLogged }, { $pull: { timings: data } })
+      .updateOne(
+        { _id: req.doctorLogged },
+        {
+          $pull: {
+            timings: data,
+          },
+        }
+      )
       .then((result) => {
         result.acknowledged
           ? (response.status = true)
@@ -293,12 +306,15 @@ export const editProfilePic = (req, res) => {
 
 export const getAppointmentsDoctor = (req, res) => {
   try {
+    const date = req.query.date ?? null;
+    let query = {
+      doctorId: req.doctorLogged,
+      status: "booked",
+      paymentStatus: true,
+    };
+    date && (query.date = date);
     appointmentModel
-      .find({
-        doctorId: req.doctorLogged,
-        status: "booked",
-        paymentStatus: true,
-      })
+      .find(query)
       .populate("patientId", "fullName phone email _id")
       .then((appointments) => {
         res.status(200).json(appointments);
@@ -352,20 +368,27 @@ export const cancelAppointment = (req, res) => {
           transactionType: "credit",
         });
         transaction.save().then((transaction) => {
-          let price = parseInt();
           walletModel
             .updateOne(
               { userId: appointment.patientId },
               {
-                $inc: { balance: appointment.price },
-                $push: { transactions: transaction._id },
+                $inc: {
+                  balance: appointment.price,
+                },
+                $push: {
+                  transactions: transaction._id,
+                },
               }
             )
             .then(() => {
               appointmentModel
                 .updateOne(
                   { _id: req.query.appointmentId },
-                  { $set: { status: "cancelled" } }
+                  {
+                    $set: {
+                      status: "cancelled",
+                    },
+                  }
                 )
                 .then((update) => {
                   update.acknowledged
@@ -393,7 +416,10 @@ export const getDoctorDashboard = (req, res) => {
       .then((count) => {
         response.patientCount = count;
         appointmentModel
-          .find({ doctorId: req.doctorLogged, paymentStatus: true })
+          .find({
+            doctorId: req.doctorLogged,
+            paymentStatus: true,
+          })
           .then((appointments) => {
             let sum = 0;
             for (let i = 0; i < appointments.length; i++) {
@@ -401,7 +427,10 @@ export const getDoctorDashboard = (req, res) => {
             }
             response.totalRevenue = sum;
             appointmentModel
-              .count({ doctorId: req.doctorLogged, status: "booked" })
+              .count({
+                doctorId: req.doctorLogged,
+                status: "booked",
+              })
               .then((count) => {
                 response.upcomingAppointments = count;
                 getAppointmentCountDoctor(req.doctorLogged).then((count) => {
@@ -411,6 +440,19 @@ export const getDoctorDashboard = (req, res) => {
                 });
               });
           });
+      });
+  } catch (err) {
+    res.status(500);
+  }
+};
+export const getSalesDoctor = (req, res) => {
+  try {
+    appointmentModel
+      .find({ doctorId: req.doctorLogged })
+      .populate("patientId", "fullName email _id")
+      .sort({ createdAt: -1 })
+      .then((appointments) => {
+        res.status(200).json(appointments);
       });
   } catch (err) {
     res.status(500);

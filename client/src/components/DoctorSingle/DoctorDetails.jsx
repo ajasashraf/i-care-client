@@ -75,7 +75,7 @@ const DoctorSinglePage = () => {
                       </svg>
                       : ${doctor.priceOffline} Consultant
                     </p>
-                    <p className="text-sm text-gray-500 mb-2 flex">
+                    {/* <p className="text-sm text-gray-500 mb-2 flex">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -91,7 +91,7 @@ const DoctorSinglePage = () => {
                         />
                       </svg>
                       : ${doctor.priceOnline} Video Appointment
-                    </p>
+                    </p> */}
                   </div>
                   <div></div>
                 </div>
@@ -127,13 +127,13 @@ const DoctorSinglePage = () => {
             >
               Book Now
             </button>
-            <button
+            {/* <button
               type="button"
               className="ml-3 px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 hover:bg-secColor hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 mb-2 sm:mb-0 drProfileButtons"
             >
               Message
-            </button>
-            <button
+            </button> */}
+            {/* <button
               type="button"
               className="flex ml-3 px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 hover:bg-mainColor hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 mb-2 sm:mb-0 bg-secColor text-white drProfileButtons"
             >
@@ -151,7 +151,7 @@ const DoctorSinglePage = () => {
                   d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"
                 />
               </svg>
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

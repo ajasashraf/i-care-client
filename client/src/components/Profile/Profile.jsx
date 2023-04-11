@@ -33,7 +33,9 @@ const Profile = () => {
   const headers = { Authorization: token };
   const [open, setOpen] = useState(false);
   const [appointmentId, setAppointmentId] = useState("");
-  const err = useState("");
+  const [error, setError] = useState("");
+  const setCustomValidity = useState("");
+
   useEffect(() => {
     setLoading(true);
     axios
@@ -77,6 +79,7 @@ const Profile = () => {
     axios
       .post(`${userUrl}editProfile`, updatedData, { headers })
       .then((response) => {
+        response.status === 200 && toast.success("edited successfully");
         response.status === 200 && setResetPage((resetPage) => !resetPage);
       })
       .catch((err) => {
@@ -106,6 +109,7 @@ const Profile = () => {
         });
     };
   };
+
   const cancelAppointmentMenu = (id) => {
     setAppointmentId(id);
     setOpen(true);
@@ -184,124 +188,139 @@ const Profile = () => {
         </div>
       );
     case "history":
-      return history.length === 0 ? (
-        <div className="flex flex-col items-center">
-          <BellIcon className="h-24 w-24 text-gray-300 mb-4 mt-4" />
-          <p className="text-lg leading-7 text-gray-500">
-              You have no notifications.
-          </p>
-        </div>
-      ) : (
-        <div className="bg-gray-100 p-4 md:max-w-full mx-auto">
-          <h2 className="text-xl font-bold mb-4">Appointment History</h2>
-          {history.map((history) => (
-            <div
-              className="mb-2 bg-white rounded-lg p-3 flex items-center justify-between"
-              key={history._id}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6 mr-3"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
-                />
-              </svg>
-              <p className="text-gray-600 flex-grow  tracking-wide	text-textBlue text-sm">
-                  Doctor:
-                <a className="text-textBlue font-semibold me-3">
-                  {" "}
-                    Dr {history?.doctorId?.fullName}
-                </a>{" "}
-                  Date:{" "}
-                <a className="text-textBlue font-semibold me-3">
-                  {history?.date.substring(0, 10)}
-                </a>{" "}
-                  Time:{" "}
-                <a className="text-textBlue font-semibold me-3">
-                  {" "}
-                  {history?.slot}
-                </a>{" "}
-                  booked on:{" "}
-                <a className="text-textBlue font-semibold me-3">
-                  {history?.createdAt.substring(0, 10)}
-                </a>
-                  status:
-                {history?.status === "visited" && (
-                  <a className="text-textBlue font-semibold">Consulted</a>
-                )}
-                {history?.status === "unVisited" && (
-                  <a className="text-textBlue font-semibold">not consulted</a>
-                )}
-                {history?.status === "cancelled" && (
-                  <a className="text-textBlue font-semibold">Cancelled</a>
-                )}
+      return (
+        <>
+          <h2 className="text-xl text-textBlue font-bold mb-4">History</h2>
+          {history.length === 0 ? (
+            <div className="flex flex-col items-center">
+              <BellIcon className="h-20 w-20 text-gray-300 mb-4 mt-4" />
+              <p className="text-lg leading-7 text-gray-500">
+                  You have no history.
               </p>
             </div>
-          ))}
-        </div>
+          ) : (
+            <div className="bg-gray-100 p-4 md:max-w-full mx-auto">
+              <h2 className="text-xl font-bold mb-4">Appointment History</h2>
+              {history.map((history) => (
+                <div
+                  className="mb-2 bg-white rounded-lg p-3 flex items-center justify-between"
+                  key={history._id}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 mr-3"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                    />
+                  </svg>
+                  <p className="text-gray-600 flex-grow  tracking-wide	text-textBlue text-sm">
+                      Doctor:
+                    <a className="text-textBlue font-semibold me-3">
+                      {" "}
+                        Dr {history?.doctorId?.fullName}
+                    </a>{" "}
+                      Date:{" "}
+                    <a className="text-textBlue font-semibold me-3">
+                      {history?.date.substring(0, 10)}
+                    </a>{" "}
+                      Time:{" "}
+                    <a className="text-textBlue font-semibold me-3">
+                      {" "}
+                      {history?.slot}
+                    </a>{" "}
+                      booked on:{" "}
+                    <a className="text-textBlue font-semibold me-3">
+                      {history?.createdAt.substring(0, 10)}
+                    </a>
+                      status:
+                    {history?.status === "visited" && (
+                      <a className="text-textBlue font-semibold">Consulted</a>
+                    )}
+                    {history?.status === "unVisited" && (
+                      <a className="text-textBlue font-semibold">
+                          not consulted
+                      </a>
+                    )}
+                    {history?.status === "cancelled" && (
+                      <a className="text-textBlue font-semibold">Cancelled</a>
+                    )}
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
       );
     case "appointments":
-      return appointments.length === 0 ? (
-        <div className="flex flex-col items-center">
-          <BellIcon className="h-24 w-24 text-gray-300 mb-4" />
-          <p className="text-lg leading-7 text-gray-500">
-              You have no appointments scheduled.
-          </p>
-        </div>
-      ) : (
-        <div className="bg-gray-100 p-4 md:max-w-full mx-auto">
-          <h2 className="text-xl font-bold mb-4">Your appointments</h2>
-          {appointments.map((appointment) => (
-            <div
-              className="mb-2 bg-white rounded-lg p-3 flex items-center justify-between"
-              key={appointment._id}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1"
-                stroke="currentColor"
-                className="w-8 h-8 mr-3"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
+      return (
+        <>
+          <h2 className="text-xl text-textBlue font-bold mb-4">
+              Appointments
+          </h2>
 
-              <p className="text-gray-600 flex-grow tracking-wide	text-textBlue text-sm">
-                  You have booked an appointment with{" "}
-                <a className="text-textBlue font-semibold">
-                  {" "}
-                    Dr {appointment?.doctorId?.fullName}
-                </a>{" "}
-                  on
-                <a className="text-textBlue font-semibold">
-                  {appointment?.date.substring(0, 10)}
-                </a>{" "}
-                  between{" "}
-                <a className="text-textBlue font-semibold">
-                  {appointment?.slot}
-                </a>
+          {appointments.length === 0 ? (
+            <div className="flex flex-col items-center">
+              <BellIcon className="h-20 w-20 text-gray-300 mb-4" />
+              <p className="text-lg leading-7 text-gray-500">
+                  You have no appointments scheduled.
               </p>
-              <button
-                className="bg-red  text-blue-700 font-semibold hover:text-blue-400   border-none border-blue-500 hover:border-transparent rounded "
-                onClick={() => cancelAppointmentMenu(appointment._id)}
-              >
-                  Cancel
-              </button>
             </div>
-          ))}
-        </div>
+          ) : (
+            <div className="bg-gray-100 p-4 md:max-w-full mx-auto">
+              <h2 className="text-xl font-bold mb-4">Your appointments</h2>
+              {appointments.map((appointment) => (
+                <div
+                  className="mb-2 bg-white rounded-lg p-3 flex items-center justify-between"
+                  key={appointment._id}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1"
+                    stroke="currentColor"
+                    className="w-8 h-8 mr-3"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+
+                  <p className="text-gray-600 flex-grow tracking-wide	text-textBlue text-sm">
+                      You have booked an appointment with{" "}
+                    <a className="text-textBlue font-semibold">
+                      {" "}
+                        Dr {appointment?.doctorId?.fullName}
+                    </a>{" "}
+                      on
+                    <a className="text-textBlue font-semibold">
+                      {appointment?.date.substring(0, 10)}
+                    </a>{" "}
+                      between{" "}
+                    <a className="text-textBlue font-semibold">
+                      {appointment?.slot}
+                    </a>
+                  </p>
+                  <button
+                    className="bg-red  text-blue-700 font-semibold hover:text-blue-400   border-none border-blue-500 hover:border-transparent rounded "
+                    onClick={() => cancelAppointmentMenu(appointment._id)}
+                  >
+                      Cancel
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
       );
 
     case "edit-profile":
@@ -333,11 +352,28 @@ const Profile = () => {
                   Phone Number
               </label>
               <input
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={(e) => {
+                  const inputVal = e.target.value;
+                  // Remove all non-digit characters
+                  const strippedVal = inputVal.replace(/\D/g, "");
+                  // Limit to 10 digits
+                  const limitedVal = strippedVal.slice(0, 10);
+                  setPhone(limitedVal);
+
+                  // Check for valid phone number
+                  if (limitedVal.length < 10 || limitedVal.length > 10) {
+                    e.target.setCustomValidity(
+                      "Phone number must be exactly 10 digits."
+                    );
+                  } else {
+                    e.target.setCustomValidity("");
+                  }
+                }}
                 className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                 type="tel"
                 id="phone"
                 name="phone"
+                value={phone}
                 placeholder={userData?.phone}
               />
             </div>
@@ -349,13 +385,24 @@ const Profile = () => {
                   Address
               </label>
               <input
-                onChange={(e) => setAddress(e.target.value)}
+                onChange={(e) => {
+                  const re = /^\s*$/;
+                  if (re.test(e.target.value)) {
+                    setAddress("");
+                    setCustomValidity("Full Name cannot contain only spaces");
+                  } else {
+                    setAddress(e.target.value);
+                    setError("");
+                  }
+                }}
                 className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                 type="text"
                 id="address"
                 name="address"
+                value={address}
                 placeholder={userData?.address}
               />
+              {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
             </div>
             <button className="save-button bg-mainColor hover:bg-secColor text-white py-2 px-4 rounded-full  focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50">
                 Save Changes

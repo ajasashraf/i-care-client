@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, {  useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { userUrl } from "../../../apiLinks/apiLinks";
@@ -13,7 +13,7 @@ const AppointmentForm = () => {
   const [day, setDay] = useState("");
   const [time, setTime] = useState("");
   const [isOpen, setOpen] = useState(false);
-  // const [orderId, setOrderId] = useState("");
+  const [orderId, setOrderId] = useState("");
   const [loading, setLoading] = useState(false);
   const [price, setPrice] = useState("");
   const [appointmentId, setAppointmentId] = useState("");
@@ -99,7 +99,7 @@ const AppointmentForm = () => {
       .get(`${userUrl}cancelAppointment?appointmentId=${appointmentId}`, {
         headers,
       })
-      .then(() => {
+      .then((response) => {
         setOpen(false);
         formRef.current.reset();
       })
@@ -162,6 +162,32 @@ const AppointmentForm = () => {
     const rzp = new window.Razorpay(options);
     rzp.open();
     setLoading(false);
+  };
+
+  const payWithWallet = () => {
+    setLoading(true);
+    axios
+      .get(`${userUrl}payWithWallet?appointmentId=${appointmentId}`, {
+        headers,
+      })
+      .then((response) => {
+        response.data.payment === "noBalance" &&
+          toast.error(
+            "Not enough balance in wallet try another payment method "
+          );
+        if (response.data.payment === "success") {
+          {
+            toast.success("Payment success");
+            setOpen(false);
+          }
+        }
+      })
+      .catch((err) => {
+        err?.response?.status === 401
+          ? Navigate("/signIn")
+          : toast.error("something went wrong");
+      })
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -265,7 +291,10 @@ const AppointmentForm = () => {
               Total Amount: <span className="font-bold">₹ {price}</span>
             </p>
             <div className="flex justify-between">
-              <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg mr-4">
+              <button
+                className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-lg mr-4"
+                onClick={payWithWallet}
+              >
                 Pay with Wallet
               </button>
               <button

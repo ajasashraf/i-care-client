@@ -171,7 +171,7 @@ function AdminHome() {
                       style={{ color: "black" }}
                     >
                       <img
-                        src="\Images\e-care-high-resolution-logo-color-on-transparent-background (1).png"
+                        src="\Images\i-care-low-resolution-logo-black-on-transparent-background.png"
                         alt=""
                         width={80}
                         height={80}
@@ -203,7 +203,7 @@ function AdminHome() {
                       className="mx-auto my-auto mt-4"
                     >
                       <img
-                        src="\Images\e-care-high-resolution-logo-color-on-transparent-background (1).png"
+                        src="\Images\i-care-low-resolution-logo-black-on-transparent-background.png"
                         alt=""
                         width={80}
                         height={80}

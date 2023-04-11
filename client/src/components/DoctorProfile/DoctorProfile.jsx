@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React from "react";
 import { useState, useEffect, useRef } from "react";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -11,7 +13,7 @@ import "./DoctorProfile.css";
 import { useContext } from "react";
 import { docDetailsContext } from "../../pages/Doctor/Doctor_Profile/Doctor_Profile";
 import axios from "axios";
-import { doctorUrl } from "../../../apiLinks/apiLinks";
+import { doctorUrl, userUrl } from "../../../apiLinks/apiLinks";
 import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import {
@@ -28,7 +30,6 @@ import ReactApexChart from "react-apexcharts";
 const DoctorProfile = () => {
   const { docDetails, SetDocDetails } = useContext(docDetailsContext);
   const [activeTab, setActiveTab] = useState("dashboard");
-  // const endTimeRef = useRef("");
   const timeFormRef = useRef("");
   const editFormRef = useRef("");
   const [email, setEmail] = useState("");
@@ -49,6 +50,10 @@ const DoctorProfile = () => {
   const [revenue, setRevenue] = useState("");
   const [pending, setPending] = useState("");
   const [appointmentGraph, setAppointmentGraph] = useState([]);
+  const [sales, setSales] = useState([]);
+  const [date, setDate] = useState("");
+  const [error, setError] = useState("");
+  const setCustomValidity = useState("");
   let token = localStorage.getItem("doctorToken");
   const headers = { Authorization: token };
 
@@ -73,7 +78,7 @@ const DoctorProfile = () => {
     if (activeTab === "appointments") {
       setLoading(true);
       axios
-        .get(`${doctorUrl}getAppointments`, { headers })
+        .get(`${doctorUrl}getAppointments?date=${date}`, { headers })
         .then((response) => {
           setAppointment(response.data);
         })
@@ -99,8 +104,22 @@ const DoctorProfile = () => {
             : toast.error("something wrong");
         })
         .finally(() => setLoading(false));
+    } else if (activeTab === "sales") {
+      setLoading(true);
+      axios
+        .get(`${doctorUrl}getSales`, { headers })
+        .then((response) => {
+          console.log(response.data);
+          setSales(response.data);
+        })
+        .catch((err) => {
+          err?.response?.status === 401
+            ? Navigate("/signIn")
+            : toast.error("something wrong");
+        })
+        .finally(() => setLoading(false));
     }
-  }, [activeTab, resetPage]);
+  }, [activeTab, resetPage, date]);
 
   const handleDayOfWeekChange = (e) => {
     setDay(e.target.value);
@@ -295,7 +314,6 @@ const DoctorProfile = () => {
     } else if (end <= start) {
       return (check = false);
     }
-    // eslint-disable-next-line no-unused-vars
     return (check = true);
   }
 
@@ -349,21 +367,6 @@ const DoctorProfile = () => {
           : toast.error("something went wrong");
       });
   };
-
-  const notifications = [
-    {
-      id: 1,
-      message: "this is a notification",
-    },
-    {
-      id: 2,
-      message: "this is a notification",
-    },
-    {
-      id: 3,
-      message: "this is a notification",
-    },
-  ];
 
   const renderTabContent = () => {
     switch (activeTab) {
@@ -453,117 +456,186 @@ const DoctorProfile = () => {
           </div>
         </div>
       );
-    case "notifications":
-      return notifications.length === 0 ? (
-        <div className="flex flex-col items-center">
-          <BellIcon className="h-24 w-24 text-gray-300 mb-4 mt-4" />
-          <p className="text-lg leading-7 text-gray-500">
-              You have no notifications.
-          </p>
-        </div>
-      ) : (
-        <div className="bg-gray-100 p-4 md:max-w-full mx-auto">
-          <h2 className="text-xl font-bold mb-4">Notifications</h2>
-          {notifications.map((notification) => (
-            <div
-              className="mb-2 bg-white rounded-lg p-3 flex items-center justify-between"
-              key={notification.id}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6 mr-3"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
-                />
-              </svg>
-              <p className="text-gray-600 flex-grow">
-                {notification.message}
+    case "sales":
+      return (
+        <>
+          <h2 className="text-xl text-textBlue font-bold mb-4">Your Sales</h2>
+          {sales.length === 0 ? (
+            <div className="flex flex-col items-center">
+              <BellIcon className="h-20 w-20 text-gray-300 mb-4 mt-4" />
+              <p className="text-lg leading-7 text-gray-500">
+                  You have no sales.
               </p>
-              <button className="text-gray-600 font-bold py-2 px-4 rounded border border-gray-400">
-                  Mark as Read
-              </button>
             </div>
-          ))}
-        </div>
+          ) : (
+            <div className="bg-gray-100 p-4 md:max-w-full mx-auto">
+              <h2 className="text-xl font-bold mb-4">Sales</h2>
+              {sales.map((sale) => (
+                <div
+                  className="mb-2 bg-white rounded-lg p-3 flex items-center justify-between"
+                  key={sale._id}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 mr-3"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                    />
+                  </svg>
+                  <p className="text-gray-600 flex-grow  tracking-wide	text-textBlue text-sm">
+                    {" "}
+                      Date:{" "}
+                    <a className="text-textBlue font-semibold me-3">
+                      {sale?.date.substring(0, 10)}
+                    </a>{" "}
+                      Time:{" "}
+                    <a className="text-textBlue font-semibold me-3">
+                      {" "}
+                      {sale?.slot}
+                    </a>{" "}
+                      booked on:{" "}
+                    <a className="text-textBlue font-semibold me-3">
+                      {sale?.createdAt.substring(0, 10)}
+                    </a>
+                      status:
+                    {sale?.status === "visited" && (
+                      <a className="text-textBlue font-semibold me-3">
+                          Consulted
+                      </a>
+                    )}
+                    {sale?.status === "unVisited" && (
+                      <a className="text-textBlue font-semibold me-3">
+                          not consulted
+                      </a>
+                    )}
+                    {sale?.status === "cancelled" && (
+                      <a className="text-textBlue font-semibold me-3">
+                          Cancelled
+                      </a>
+                    )}
+                    {sale?.status === "booked" && (
+                      <a className="text-textBlue font-semibold me-3">
+                          upcoming
+                      </a>
+                    )}
+                      amount:
+                    <a className="text-textBlue font-semibold me-3">
+                      {sale?.price}
+                    </a>
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
       );
+
     case "appointments":
-      return appointments.length === 0 ? (
-        <div className="flex flex-col items-center">
-          <BellIcon className="h-24 w-24 text-gray-300 mb-4" />
-          <p className="text-lg leading-7 text-gray-500">
-              You have no appointments scheduled.
-          </p>
-        </div>
-      ) : (
-        <div className="bg-gray-100 p-4 md:max-w-full mx-auto">
-          <h2 className="text-xl font-bold mb-4">Your appointments</h2>
-          {appointments.map((appointment) => (
-            <div
-              className="mb-2 bg-white rounded-lg p-3 flex flex-col md:flex-row items-center justify-between"
-              key={appointment._id}
-            >
-              <div className="flex-grow text-gray-600 text-sm flex">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className="w-6 h-6 mr-3"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-                  />
-                </svg>
-                <p className="text-textBlue">
-                  <a className="font-semibold">
-                    {appointment.patientId?.fullName}
-                  </a>{" "}
-                    have booked an appointment on{" "}
-                  <a className="font-semibold">
-                    {appointment?.date.substring(0, 10)}
-                  </a>{" "}
-                    at slot <a className="font-semibold">{appointment.slot}</a>
-                </p>
-              </div>
-              <div className="flex justify-center mt-2">
-                <button
-                  className="bg-green-500 hover:bg-green-600 text-white font-bold md:py-1 lg:py-2 px-2 lg:px-4 rounded mr-2 text-sm"
-                  onClick={() => appointmentVisited(appointment._id)}
-                >
-                    Visited
-                </button>
-                <button
-                  className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold md:py-1 lg:py-2 px-2 lg:px-4 rounded mr-2 text-sm"
-                  onClick={() => appointmentUnVisited(appointment._id)}
-                >
-                    Unvisited
-                </button>
-                <button
-                  className="bg-gray-500 hover:bg-gray-600 text-white font-bold md:py-1 lg:py-2 px-2 lg:px-4 rounded text-sm"
-                  onClick={() => appointmentCancel(appointment._id)}
-                >
-                    Cancel
-                </button>
-              </div>
+      return (
+        <>
+          <h2 className="text-xl text-textBlue font-bold mb-4">
+              Your appointments
+          </h2>
+          <div className="flex  w-full justify-end bg-gray-100">
+            <div className="flex mt-2    ">
+              <input
+                type="date"
+                id="startDate"
+                className="me-2 rounded-md border border-gray-300 p-2 ms-auto"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+              // eslint-disable-next-line react/jsx-no-comment-textnodes
+              />
+              // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/click-events-have-key-events
+              <p
+                className="ms-auto me-4 text-sm text-primary cursor-pointer my-auto"
+                onClick={() => setDate("")}
+              >
+                  Clear All
+              </p>
             </div>
-          ))}
-        </div>
+          </div>
+          {appointments.length === 0 ? (
+            <div className="flex flex-col items-center">
+              <BellIcon className="h-20 w-20 text-gray-300 mb-4" />
+              <p className="text-lg leading-7 text-gray-500">
+                  You have no appointments scheduled.
+              </p>
+            </div>
+          ) : (
+            <div className="bg-gray-100 p-4 md:max-w-full mx-auto">
+              {appointments.map((appointment) => (
+                <div
+                  className="mb-2 bg-white rounded-lg p-3 flex flex-col md:flex-row items-center justify-between"
+                  key={appointment._id}
+                >
+                  <div className="flex-grow text-gray-600 text-sm flex">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6 mr-3"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
+                      />
+                    </svg>
+                    <p className="text-textBlue">
+                      <a className="font-semibold">
+                        {appointment.patientId?.fullName}
+                      </a>{" "}
+                        have booked an appointment on{" "}
+                      <a className="font-semibold">
+                        {appointment?.date.substring(0, 10)}
+                      </a>{" "}
+                        at slot{" "}
+                      <a className="font-semibold">{appointment.slot}</a>
+                    </p>
+                  </div>
+                  <div className="flex justify-center mt-2">
+                    <button
+                      className="bg-green-500 hover:bg-green-600 text-white font-bold md:py-1 lg:py-2 px-2 lg:px-4 rounded mr-2 text-sm"
+                      onClick={() => appointmentVisited(appointment._id)}
+                    >
+                        Visited
+                    </button>
+                    <button
+                      className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold md:py-1 lg:py-2 px-2 lg:px-4 rounded mr-2 text-sm"
+                      onClick={() => appointmentUnVisited(appointment._id)}
+                    >
+                        Unvisited
+                    </button>
+                    <button
+                      className="bg-gray-500 hover:bg-gray-600 text-white font-bold md:py-1 lg:py-2 px-2 lg:px-4 rounded text-sm"
+                      onClick={() => appointmentCancel(appointment._id)}
+                    >
+                        Cancel
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
       );
 
     case "edit-profile":
       return (
         <div>
-          <h2 className="text-3xl font-bold mb-4">Edit Profile</h2>
+          <h2 className="text-xl text-textBlue font-bold mb-4">
+              Edit Profile
+          </h2>
           <form onSubmit={editProfile} ref={editFormRef}>
             <div className="mb-4">
               <label
@@ -589,11 +661,28 @@ const DoctorProfile = () => {
                   Phone Number
               </label>
               <input
-                onChange={(e) => setPhone(e.target.value)}
+                onChange={(e) => {
+                  const inputVal = e.target.value;
+                  // Remove all non-digit characters
+                  const strippedVal = inputVal.replace(/\D/g, "");
+                  // Limit to 10 digits
+                  const limitedVal = strippedVal.slice(0, 10);
+                  setPhone(limitedVal);
+
+                  // Check for valid phone number
+                  if (limitedVal.length < 10 || limitedVal.length > 10) {
+                    e.target.setCustomValidity(
+                      "Phone number must be exactly 10 digits."
+                    );
+                  } else {
+                    e.target.setCustomValidity("");
+                  }
+                }}
                 className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                 type="tel"
                 id="phone"
                 name="phone"
+                value={phone}
                 placeholder={docDetails?.phone}
               />
             </div>
@@ -605,13 +694,24 @@ const DoctorProfile = () => {
                   Address
               </label>
               <input
-                onChange={(e) => setAddress(e.target.value)}
+                onChange={(e) => {
+                  const re = /^\s*$/;
+                  if (re.test(e.target.value)) {
+                    setAddress("");
+                    setCustomValidity("Full Name cannot contain only spaces");
+                  } else {
+                    setAddress(e.target.value);
+                    setError("");
+                  }
+                }}
                 className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                 type="text"
                 id="address"
                 name="address"
+                value={address}
                 placeholder={docDetails?.address}
               />
+              {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
             </div>
             <div className="mb-4">
               <label
@@ -621,13 +721,24 @@ const DoctorProfile = () => {
                   Bio
               </label>
               <input
-                onChange={(e) => setBio(e.target.value)}
+                onChange={(e) => {
+                  const re = /^\s*$/;
+                  if (re.test(e.target.value)) {
+                    setBio("");
+                    setCustomValidity("Full Name cannot contain only spaces");
+                  } else {
+                    setBio(e.target.value);
+                    setError("");
+                  }
+                }}
                 className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
                 type="text"
                 id="address"
                 name="address"
+                value={bio}
                 placeholder={docDetails?.bio}
               />
+              {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
             </div>
             <div className="mb-4">
               <label
@@ -1044,12 +1155,12 @@ const DoctorProfile = () => {
               </button>
               <button
                 className={`flex items-center text-lg py-2 px-4 rounded-md mb-2 doctor-profile-nav ${
-                  activeTab === "notifications" ? "active-nav" : "text-gray-600"
+                  activeTab === "sales" ? "active-nav" : "text-gray-600"
                 }`}
-                onClick={() => handleTabClick("notifications")}
+                onClick={() => handleTabClick("sales")}
               >
                 <BellIcon className="h-6 w-6 mr-2" />
-                <span>Notifications</span>
+                <span>Sales</span>
               </button>
               <button
                 className={`flex items-center text-lg py-2 px-4 rounded-md mb-2 doctor-profile-nav ${

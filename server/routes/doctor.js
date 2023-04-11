@@ -18,6 +18,7 @@ import {
   appointmentVisited,
   cancelAppointment,
   getDoctorDashboard,
+  getSalesDoctor,
 } from "../controllers/doctorController.js";
 import { doctorAuthentication } from "../middlewares/Authentications.js";
 const router = express.Router();
@@ -40,5 +41,6 @@ router.get("/visitedAppointment", doctorAuthentication, appointmentVisited);
 router.get("/UnVisitedAppointment", doctorAuthentication, appointmentUnVisited);
 router.get("/cancelAppointment", doctorAuthentication, cancelAppointment);
 router.get("/getDashboardDetails", doctorAuthentication, getDoctorDashboard);
+router.get("/getSales", doctorAuthentication, getSalesDoctor);
 
 export default router;

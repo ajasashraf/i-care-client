@@ -2,6 +2,7 @@ import express from "express";
 const router = express.Router();
 import {
   bookAppoinment,
+  cancelAppointment,
   editProfile,
   editProfilePic,
   forgotPassOtp,
@@ -12,6 +13,7 @@ import {
   getUserDetails,
   getWallet,
   initializePayment,
+  payWithWallet,
   resendOtp,
   resetPass,
   saveGoogleUser,
@@ -20,8 +22,6 @@ import {
   userCheck,
   verifyOtpAndSignUp,
   verifyPayment,
-  payWithWallet,
-  cancelAppointment
 } from "../controllers/userControllers.js";
 
 import { userAuthentication } from "../middlewares/Authentications.js";
@@ -47,4 +47,5 @@ router.get("/getAppointmentHistory", userAuthentication, getAppointmentHistory);
 router.get("/getWallet", userAuthentication, getWallet);
 router.get("/payWithWallet", userAuthentication, payWithWallet);
 router.get("/cancelAppointment", userAuthentication, cancelAppointment);
+
 export default router;
