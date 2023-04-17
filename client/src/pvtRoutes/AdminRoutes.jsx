@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import { adminUrl } from "../../apiLinks/apiLinks";
+import { adminUrl } from "../../api/apiLinks";
 
 function AdminRoutes() {
   const Navigate = useNavigate();

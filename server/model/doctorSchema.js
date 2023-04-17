@@ -71,6 +71,14 @@ const doctorSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
+  isAvatarImageSet: {
+    type: Boolean,
+    default: true,
+  },
+  avatarImage: {
+    type: String,
+    default: "none",
+  },
 });
 
 const doctorModel = mongoose.model("Doctor", doctorSchema);

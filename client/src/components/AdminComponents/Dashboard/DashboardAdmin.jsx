@@ -11,7 +11,7 @@ import {
 import { FaUserAlt, FaStethoscope, FaBook } from "react-icons/fa";
 import ReactApexChart from "react-apexcharts";
 import axios from "axios";
-import { adminUrl } from "../../../../apiLinks/apiLinks";
+import { adminUrl } from "../../../../api/apiLinks";
 import { adminLoading } from "../../../pages/Admin/Home/Home";
 import toast from "react-hot-toast";
 const Dashboard = () => {

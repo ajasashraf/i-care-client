@@ -18,6 +18,8 @@ import AdminLogin from "./pages/Admin/LogIn/AdminLogin";
 import RejectedPage from "./pages/Doctor/Rejected_Page/RejectedPage";
 import AdminRoutes from "./pvtRoutes/AdminRoutes";
 import DoctorList from "./pages/User/DoctorViewingPage/DoctorList";
+import Chat from "./pages/User/Chat/ChatPage";
+import DoctorChat from "./pages/Doctor/DoctorChat/ChatPage";
 
 function App() {
   return (
@@ -27,6 +29,7 @@ function App() {
         <Route element={<PrivateRoutes />}>
           <Route path="/book" element={<Appointment />} />
           <Route path="/wallet" element={<WalletPage />} />
+          <Route path="/chat" element={<Chat />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/doctorList" element={<DoctorList />} />
           <Route path="/doctorView" element={<DoctorPage />} />
@@ -43,6 +46,7 @@ function App() {
         <Route path="/departments" element={<DepartmentPage />} />
         <Route path="/doctor/verification" element={<ProfileVerification />} />
         <Route path="/doctor/rejected" element={<RejectedPage />} />
+        <Route path="/doctor/chat" element={<DoctorChat />} />
       </Routes>
     </Router>
   );

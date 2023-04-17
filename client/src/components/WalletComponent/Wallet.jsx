@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { userUrl } from "../../../apiLinks/apiLinks";
+import { userUrl } from "../../../api/apiLinks";
 
 const Wallet = () => {
   const [balance,setBalance] = useState(0);

@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { doctorUrl } from "../../apiLinks/apiLinks";
+import { doctorUrl } from "../../api/apiLinks";
 // import { userContext } from "../store/Contexts";
 
 const DoctorRoutes = () => {

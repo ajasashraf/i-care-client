@@ -13,7 +13,7 @@ import "./DoctorProfile.css";
 import { useContext } from "react";
 import { docDetailsContext } from "../../pages/Doctor/Doctor_Profile/Doctor_Profile";
 import axios from "axios";
-import { doctorUrl, userUrl } from "../../../apiLinks/apiLinks";
+import { doctorUrl, userUrl } from "../../../api/apiLinks";
 import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import {
@@ -551,9 +551,9 @@ const DoctorProfile = () => {
                 className="me-2 rounded-md border border-gray-300 p-2 ms-auto"
                 value={date}
                 onChange={(e) => setDate(e.target.value)}
-              // eslint-disable-next-line react/jsx-no-comment-textnodes
+                // eslint-disable-next-line react/jsx-no-comment-textnodes
               />
-              // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/click-events-have-key-events
+
               <p
                 className="ms-auto me-4 text-sm text-primary cursor-pointer my-auto"
                 onClick={() => setDate("")}

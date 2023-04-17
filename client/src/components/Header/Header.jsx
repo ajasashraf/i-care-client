@@ -27,6 +27,7 @@ const NavItemUser = [
     page: "Wallet",
     path: "/wallet",
   },
+  
   {
     page: "About",
     path: "/",
@@ -205,6 +206,14 @@ function Header() {
                   >
                     Profile
                   </MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      setAnchorEl(null);
+                      Navigate("/chat");
+                    }}
+                  >
+                    Chat
+                  </MenuItem>
                   <MenuItem onClick={userLogOut}>Logout</MenuItem>
                 </Menu>
               </div>
@@ -237,6 +246,14 @@ function Header() {
                     }}
                   >
                     Profile
+                  </MenuItem>
+                  <MenuItem
+                    onClick={() => {
+                      setAnchorEl(null);
+                      Navigate("/doctor/chat");
+                    }}
+                  >
+                    Chat
                   </MenuItem>
                   <MenuItem onClick={doctorLogOut}>Logout</MenuItem>
                 </Menu>

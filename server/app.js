@@ -6,7 +6,10 @@ import connection from "./config/dbConnection.js";
 import userRouter from "./routes/user.js";
 import adminRouter from "./routes/admin.js";
 import doctorRouter from "./routes/doctor.js";
+import chatRouter from './routes/chat.js'
+import doctorChatRouter from './routes/doctorChat.js'
 import cors from "cors";
+import { Server } from "socket.io"; 
 import dotenv from "dotenv";
 dotenv.config();
 const app = express();
@@ -32,7 +35,32 @@ app.use(
 app.use("/admin", adminRouter);
 app.use("/", userRouter);
 app.use("/doctor", doctorRouter);
-
-app.listen(2000, () => {
+app.use('/chat', chatRouter)
+app.use('/doctor/chat',doctorChatRouter)
+const server = app.listen(2000, () => {
   console.log("server connected to port 2000");
 });
+
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:4000",
+    credentials: true,
+  },
+});
+
+global.onlineUsers = new Map();
+
+io.on("connection", (socket) => {
+  global.chatSocket = socket;
+  socket.on("add-user", (userId) => {
+    onlineUsers.set(userId, socket.id);
+  });
+
+  socket.on("send-msg", (data) => {
+    const sendUserSocket = onlineUsers.get(data.to);
+    if (sendUserSocket) {
+      socket.to(sendUserSocket).emit("msg-recieve", data.msg);
+    }
+  });
+});
+

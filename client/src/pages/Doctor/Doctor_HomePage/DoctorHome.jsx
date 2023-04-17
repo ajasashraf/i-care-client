@@ -1,5 +1,5 @@
 import React from "react";
-// import { doctorUrl } from "../../../../apiLinks/apiLinks";
+// import { doctorUrl } from "../../../../api/apiLinks";
 import DoctorBanner from "../../../components/DoctorBanner/DoctorBanner";
 import DoctorDetails from "../../../components/DoctorDetails/DoctorDetails";
 import Footer from "../../../components/Footer/Footer";

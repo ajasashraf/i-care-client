@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { userUrl } from "../../../apiLinks/apiLinks";
+import { userUrl } from "../../../api/apiLinks";
 
 export const fetchDepartments = createAsyncThunk(
   "department/fetchDepartments",

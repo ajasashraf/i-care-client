@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate, Outlet } from "react-router-dom";
 import axios from "axios";
-import { userUrl } from "../../apiLinks/apiLinks";
+import { userUrl } from "../../api/apiLinks";
 
 const PrivateRoutes = () => {
   const Navigate = useNavigate();

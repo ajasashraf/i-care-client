@@ -4,7 +4,7 @@ import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "./SignInForm.css";
 import axios from "axios";
-import { userUrl, doctorUrl } from "../../../apiLinks/apiLinks";
+import { userUrl, doctorUrl } from "../../../api/apiLinks";
 import { firebaseContext, userContext } from "../../store/Contexts";
 import { toast, Toaster } from "react-hot-toast";
 

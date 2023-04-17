@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { userUrl } from "../../../apiLinks/apiLinks";
+import { userUrl } from "../../../api/apiLinks";
 
 let token = localStorage.getItem("userToken");
 let headers = { authorization: token };

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
-import { adminUrl } from "../../../../apiLinks/apiLinks";
+import { adminUrl } from "../../../../api/apiLinks";
 import "./newDoctors.css";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";

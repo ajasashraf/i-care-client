@@ -9,7 +9,7 @@ import {
   CalendarIcon,
 } from "@heroicons/react/outline";
 import axios from "axios";
-import { userUrl } from "../../../apiLinks/apiLinks";
+import { userUrl } from "../../../api/apiLinks";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";

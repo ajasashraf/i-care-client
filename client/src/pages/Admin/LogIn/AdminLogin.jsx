@@ -13,7 +13,7 @@ import {
 
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import axios from "axios";
-import { adminUrl } from "../../../../apiLinks/apiLinks";
+import { adminUrl } from "../../../../api/apiLinks";
 import { toast, Toaster } from "react-hot-toast";
 
 const StyledForm = styled("form")(({ theme }) => ({

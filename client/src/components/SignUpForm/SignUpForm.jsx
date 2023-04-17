@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "./SignUpForm.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { userUrl, doctorUrl } from "../../../apiLinks/apiLinks";
+import { userUrl, doctorUrl } from "../../../api/apiLinks";
 import { toast, Toaster } from "react-hot-toast";
 
 const SignUpForm = () => {

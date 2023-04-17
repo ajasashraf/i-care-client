@@ -32,6 +32,14 @@ const userSchema = new Schema({
     type: Date,
     default: Date.now(),
   },
+  isAvatarImageSet: {
+    type: Boolean,
+    default: true,
+  },
+  avatarImage: {
+    type: String,
+    default: "none",
+  },
 });
 const userModel = mongoose.model("User", userSchema);
 export default userModel;

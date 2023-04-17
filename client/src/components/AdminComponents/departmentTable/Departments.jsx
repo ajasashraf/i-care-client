@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
-import { adminUrl } from "../../../../apiLinks/apiLinks";
+import { adminUrl } from "../../../../api/apiLinks";
 import Modal from "@mui/material/Modal";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
@@ -353,14 +353,10 @@ function Departments() {
               />
             </div>
 
-            <button className="flex mt-4 h-3/4 items-center  w-1/4 px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform  rounded-md sign-up focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+            <button className="flex mt-4 h-3/4 justify-center items-center  w-1/6 px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform  rounded-md sign-up focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
               <span>Save</span>
 
-              {/* <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 20 20" fill="currentColor">
-                    <path fillRule="evenodd"
-                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                        clipRule="evenodd" />
-                </svg> */}
+             
             </button>
           </form>
           <button

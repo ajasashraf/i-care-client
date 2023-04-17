@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "./Table.css";
 import { DataGrid } from "@mui/x-data-grid";
 import axios from "axios";
-import { adminUrl } from "../../../../apiLinks/apiLinks";
+import { adminUrl } from "../../../../api/apiLinks";
 import { adminLoading } from "../../../pages/Admin/Home/Home";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useContext, useRef, useState } from "react";
-import { adminUrl } from "../../../../apiLinks/apiLinks";
+import { adminUrl } from "../../../../api/apiLinks";
 import { adminLoading } from "../../../pages/Admin/Home/Home";
 import toast, { Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -90,7 +90,6 @@ function AddDepartment() {
           />
           {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
         </div>
-
         <div>
           <label
             htmlFor="Description"
@@ -118,7 +117,6 @@ function AddDepartment() {
           />
           {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
         </div>
-
         <div>
           <label
             htmlFor="diseases"
@@ -146,7 +144,6 @@ function AddDepartment() {
           />
           {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
         </div>
-
         <div>
           <label htmlFor="photo" className="block mb-2 text-sm text-gray-400">
             Upload Photo
@@ -161,16 +158,10 @@ function AddDepartment() {
             className="block w-full px-5 py-3 mt-2  placeholder-gray-400 bg-white border border-gray-200 rounded-md dark:placeholder-gray-400 dark:bg-gray-900 dark:text-gray-800 dark:border-gray-700 focus:border-blue-400 dark:focus:border-blue-400 focus:ring-blue-400 focus:outline-none focus:ring focus:ring-opacity-40"
           />
         </div>
-
-        <button className="flex mt-4 h-3/4 items-center  w-1/4 px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform  rounded-md sign-up focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
-          <span>Add </span>
-
-          {/* <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5 rtl:-scale-x-100" viewBox="0 0 20 20" fill="currentColor">
-                        <path fillRule="evenodd"
-                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                            clipRule="evenodd" />
-                    </svg> */}
+        <button className="flex mt-4 h-3/4 justify-center items-center w-1/6 px-6 py-3 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform rounded-md sign-up focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+          <span>Add</span>
         </button>
+        
       </form>
     </div>
   );

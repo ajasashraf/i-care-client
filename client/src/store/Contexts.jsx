@@ -1,7 +1,7 @@
 import React, { createContext, useState, useEffect } from "react";
 import { signInWithGoogle } from "../firebase/config";
 import axios from "axios";
-import { doctorUrl, userUrl } from "../../apiLinks/apiLinks";
+import { doctorUrl, userUrl } from "../../api/apiLinks";
 export const firebaseContext = createContext();
 export const userContext = createContext("");
 
