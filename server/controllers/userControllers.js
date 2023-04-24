@@ -247,7 +247,7 @@ export const saveGoogleUser = (req, res) => {
 export const getDepartment = async (req, res) => {
   try {
     let pageNo = req.query.pageNo;
-    let searchQuery = req.query.search ?? null;
+    let searchQuery = req.query.search  ;
     let query = {
       list: true,
     };
