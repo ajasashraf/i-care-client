@@ -46,9 +46,9 @@ export const titleCase = (str) => {
 export const checkingSlotsAvailability = ({ newDate, time, doctorId }) => {
   return new Promise((resolve, reject) => {
     doctorModel.findOne({ _id: doctorId }).then((doctor) => {
-      let timings = doctor?.timings;
-      if (timings) {
-        let slot = timings.filter((slots) => {
+      
+      if (doctor?.timings) {
+        let slot = doctor?.timings.filter((slots) => {
           let timeArr = time.split("-");
           if (slots.startTime === timeArr[0] && slots.endTime === timeArr[1]) {
             return slots;
