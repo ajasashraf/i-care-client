@@ -269,7 +269,7 @@ export const adminCheck = (req, res) => {
 export const editDepartment = async (req, res) => {
   try {
     const data = req.body.departmentDetails;
-    const image = req.body?.imageData;
+    const image = req.body.imageData;
     const depId = req.params.id;
     let departmentName = await titleCase(data.name);
     departmentModel
