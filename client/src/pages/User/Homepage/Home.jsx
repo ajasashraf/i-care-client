@@ -4,7 +4,7 @@ const Banner = React.lazy(() => import("../../../components/Banner/Banner"));
 import Departments from "../../../components/Departments/Departments";
 import Footer from "../../../components/Footer/Footer";
 import Header from "../../../components/Header/Header";
-import ServicesSection from "../../../components/Services/Services";
+// import ServicesSection from "../../../components/Services/Services";
 import Waiting from "../../../components/Loading/Waiting";
 
 function Home() {
@@ -15,7 +15,7 @@ function Home() {
         <Banner />
       </Suspense>
       <Departments />
-      <ServicesSection />
+      {/* <ServicesSection /> */}
       <Footer />
     </div>
   );
