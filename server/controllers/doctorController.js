@@ -306,7 +306,7 @@ export const editProfilePic = (req, res) => {
 
 export const getAppointmentsDoctor = (req, res) => {
   try {
-    const date = req.query.date ?? null;
+    const date = req.query.date ;
     let query = {
       doctorId: req.doctorLogged,
       status: "booked",
