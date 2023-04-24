@@ -269,7 +269,7 @@ export const getDepartment = async (req, res) => {
 
 export const getDoctors = (req, res) => {
   try {
-    let departmentId = req.query.department ?? null;
+    let departmentId = req.query?.department ;
     let pageNo = req.query.page;
     let search = req.query.search ?? null;
     let sort = req.query.sort ?? null;
