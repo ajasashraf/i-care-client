@@ -271,9 +271,9 @@ export const getDoctors = (req, res) => {
   try {
     let departmentId = req.query.department ;
     let pageNo = req.query.page;
-    let search = req.query.search ?? null;
-    let sort = req.query.sort ?? null;
-    let filter = req.query.filter ?? null;
+    let search = req.query.search ;
+    let sort = req.query.sort ;
+    let filter = req.query.filter ;
     let query = {
       block: false,
       verification: "success",
