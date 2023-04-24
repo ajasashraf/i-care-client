@@ -165,7 +165,7 @@ export const rejectedUser = (req, res) => {
     let doctorId = req.params.id;
     let response = {};
     doctorModel.findOne({ _id: doctorId }).then((doctor) => {
-      response.details = doctor?.rejectReason;
+      response.details = doctor.rejectReason;
       response.status = true;
       res.status(200).json(response);
     });
