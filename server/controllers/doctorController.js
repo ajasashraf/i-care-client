@@ -165,7 +165,7 @@ export const rejectedUser = (req, res) => {
     let doctorId = req.params.id;
     let response = {};
     doctorModel.findOne({ _id: doctorId }).then((doctor) => {
-      response.details = doctor?.rejectReason;
+      response.details = doctor.rejectReason;
       response.status = true;
       res.status(200).json(response);
     });
@@ -306,7 +306,7 @@ export const editProfilePic = (req, res) => {
 
 export const getAppointmentsDoctor = (req, res) => {
   try {
-    const date = req.query.date ?? null;
+    const date = req.query.date ;
     let query = {
       doctorId: req.doctorLogged,
       status: "booked",

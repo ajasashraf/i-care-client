@@ -106,7 +106,7 @@ export const signIn = (req, res) => {
 };
 
 export const userCheck = (req, res) => {
-  let token = req.headers?.authorization;
+  let token = req.headers.authorization;
   try {
     if (token) {
       jwt.verify(token, process.env.TOKEN_SECRET, (err, result) => {
@@ -224,7 +224,7 @@ export const saveGoogleUser = (req, res) => {
         let newUser = new userModel({
           fullName: details.displayName,
           email: details.email,
-          phone: details.phoneNumber ?? "",
+          phone: details.phoneNumber  ,
           profilePic: details.photoUrl,
         });
         newUser.save().then((newUser) => {
@@ -247,7 +247,7 @@ export const saveGoogleUser = (req, res) => {
 export const getDepartment = async (req, res) => {
   try {
     let pageNo = req.query.pageNo;
-    let searchQuery = req.query.search ?? null;
+    let searchQuery = req.query.search  ;
     let query = {
       list: true,
     };
@@ -269,11 +269,11 @@ export const getDepartment = async (req, res) => {
 
 export const getDoctors = (req, res) => {
   try {
-    let departmentId = req.query.department ?? null;
+    let departmentId = req.query.department ;
     let pageNo = req.query.page;
-    let search = req.query.search ?? null;
-    let sort = req.query.sort ?? null;
-    let filter = req.query.filter ?? null;
+    let search = req.query.search ;
+    let sort = req.query.sort ;
+    let filter = req.query.filter ;
     let query = {
       block: false,
       verification: "success",
