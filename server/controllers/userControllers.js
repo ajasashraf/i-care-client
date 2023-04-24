@@ -224,7 +224,7 @@ export const saveGoogleUser = (req, res) => {
         let newUser = new userModel({
           fullName: details.displayName,
           email: details.email,
-          phone: details.phoneNumber ?? "",
+          phone: details.phoneNumber  ,
           profilePic: details.photoUrl,
         });
         newUser.save().then((newUser) => {
