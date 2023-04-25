@@ -37,7 +37,7 @@ const NavItems = [
   },
   {
     page: "About",
-    path: "/",
+    path: "/aboutUs",
   },
 ];
 const NavitemCommon = [
@@ -51,7 +51,7 @@ const NavitemCommon = [
   },
   {
     page: "About us",
-    path: "/",
+    path: "/aboutUs",
   },
   {
     page: "Register",
@@ -202,7 +202,7 @@ export default function TemporaryDrawer() {
         onClose={() => SetOpen(false)}
         PaperProps={{
           sx: {
-            backgroundColor: "#0AB3B8",
+            backgroundColor: "#155e75",
             color: "#ffff",
           },
         }}
