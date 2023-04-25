@@ -1,4 +1,4 @@
-export const host = "http://localhost:2000";
+export const host = "http://localhost:3000";
 export const loginRoute = `${host}/chat/login`;
 export const registerRoute = `${host}/chat/register`;
 export const logoutRoute = `${host}/chat/logout`;
