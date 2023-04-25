@@ -1,4 +1,5 @@
-import mongoose, { mongo } from "mongoose";
+const mongoose = require("mongoose");
+const { mongo } = require("mongoose");
 const Schema = mongoose.Schema;
 const ObjectId = mongoose.Types.ObjectId;
 

@@ -1,6 +1,6 @@
-import appointmentModel from "../../model/appointmentSchema.js";
-import doctorModel from "../../model/doctorSchema.js";
-import userModel from "../../model/userSchema.js";
+const appointmentModel = require("../../model/appointmentSchema.js");
+const doctorModel = require("../../model/doctorSchema.js");
+const userModel = require("../../model/userSchema.js");
 
 export const checkSlots = (slots, id) => {
   return new Promise((resolve, reject) => {

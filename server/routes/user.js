@@ -1,6 +1,6 @@
-import express from "express";
+const express = require("express");
 const router = express.Router();
-import {
+const {
   bookAppoinment,
   cancelAppointment,
   editProfile,
@@ -22,9 +22,9 @@ import {
   userCheck,
   verifyOtpAndSignUp,
   verifyPayment,
-} from "../controllers/userControllers.js";
-
-import { userAuthentication } from "../middlewares/Authentications.js";
+} = require("../controllers/userControllers.js");
+const { userAuthentication } = require("../middlewares/Authentications.js");
+const express = require("express");
 
 router.post("/getOtp", sendOtp);
 router.post("/signUp", verifyOtpAndSignUp);

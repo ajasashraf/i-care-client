@@ -1,26 +1,26 @@
-import express from "express";
-import {
-  SignIn,
-  doctorSignUp,
-  doctorAuth,
-  sendOtp,
-  resendOtp,
-  rejectedUser,
-  resendApplication,
-  getDepartment,
-  getDocDetails,
-  editProfile,
-  timeSlots,
-  deleteSlot,
-  editProfilePic,
-  getAppointmentsDoctor,
-  appointmentUnVisited,
-  appointmentVisited,
-  cancelAppointment,
-  getDoctorDashboard,
-  getSalesDoctor,
-} from "../controllers/doctorController.js";
-import { doctorAuthentication } from "../middlewares/Authentications.js";
+const express = require("express");
+const {
+SignIn,
+doctorSignUp,
+doctorAuth,
+sendOtp,
+resendOtp,
+rejectedUser,
+resendApplication,
+getDepartment,
+getDocDetails,
+editProfile,
+timeSlots,
+deleteSlot,
+editProfilePic,
+getAppointmentsDoctor,
+appointmentUnVisited,
+appointmentVisited,
+cancelAppointment,
+getDoctorDashboard,
+getSalesDoctor,
+} = require("../controllers/doctorController.js");
+const { doctorAuthentication } = require("../middlewares/Authentications.js");
 const router = express.Router();
 
 router.post("/getOtp", sendOtp);

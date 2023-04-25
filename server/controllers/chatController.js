@@ -1,8 +1,8 @@
-import userModel from "../model/userSchema.js";
-import doctorModel from "../model/doctorSchema.js";
-import appointmentModel from "../model/appointmentSchema.js";
-import Messages from "../model/messageModel.js";
-import jwt from "jsonwebtoken";
+const userModel = require("../model/userSchema.js");
+const doctorModel = require("../model/doctorSchema.js");
+const appointmentModel = require("../model/appointmentSchema.js");
+const Messages = require("../model/messageModel.js");
+const jwt = require("jsonwebtoken");
 
 export const userData = async (req, res) => {
   if (req.body.token) {

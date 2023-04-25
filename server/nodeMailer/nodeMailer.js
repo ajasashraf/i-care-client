@@ -1,4 +1,5 @@
-import nodeMailer from "nodemailer";
+const nodeMailer = require("nodemailer");
+
 
 const sendMail = (email, otp) => {
   let response = {

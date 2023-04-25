@@ -1,5 +1,6 @@
-import express from "express";
-import { userData, addMessage, getAllDoctors, getMessages } from "../controllers/chatController.js";
+const express = require("express");
+const { userData, addMessage, getAllDoctors, getMessages } = require("../controllers/chatController.js");
+
 const router = express.Router();
 
 router.post("/userData", userData)

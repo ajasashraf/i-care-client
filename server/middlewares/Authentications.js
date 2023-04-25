@@ -1,7 +1,7 @@
-import doctorModel from "../model/doctorSchema.js";
-import jwt from "jsonwebtoken";
-import userModel from "../model/userSchema.js";
-import adminModel from "../model/adminSchema.js";
+const doctorModel = require("../model/doctorSchema.js");
+const jwt = require("jsonwebtoken");
+const userModel = require("../model/userSchema.js");
+const adminModel = require("../model/adminSchema.js");
 
 export const doctorAuthentication = (req, res, next) => {
   if (req.headers.authorization) {

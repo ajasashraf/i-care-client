@@ -1,5 +1,5 @@
-import express from "express";
-import {
+const express = require("express");
+const {
   addDepartment,
   adminCheck,
   adminLogin,
@@ -18,8 +18,9 @@ import {
   unBlockDoctor,
   unBlockUser,
   unlistDepartment,
-} from "../controllers/adminController.js";
-import { adminAuthentication } from "../middlewares/Authentications.js";
+} = require("../controllers/adminController.js");
+const { adminAuthentication } = require("../middlewares/Authentications.js");
+
 const router = express.Router();
 
 router.post("/logIn", adminLogin);

@@ -1,18 +1,18 @@
-import userModel from "../model/userSchema.js";
-import otpGenerator from "../otpGenerator/otpGenerator.js";
-import sendMail from "../nodeMailer/nodeMailer.js";
-import jwt from "jsonwebtoken";
-import { generateToken } from "../jwtAuth/generateJwt.js";
-import bcrypt, { hash } from "bcrypt";
-import departmentModel from "../model/departmentModel.js";
-import doctorModel from "../model/doctorSchema.js";
-import appointmentModel from "../model/appointmentSchema.js";
-import { checkingSlotsAvailability } from "./helpers/helpers.js";
-import crypto from "crypto";
-import cloudinary from "../utils/cloudinary.js";
-import Razorpay from "razorpay";
-import walletModel from "../model/walletSchema.js";
-import walletTransactionModel from "../model/walletTransactionsSchem.js";
+const userModel = require("../model/userSchema.js");
+const otpGenerator = require("../otpGenerator/otpGenerator.js");
+const sendMail = require("../nodeMailer/nodeMailer.js");
+const jwt = require("jsonwebtoken");
+const { generateToken } = require("../jwtAuth/generateJwt.js");
+const bcrypt = require("bcrypt");
+const departmentModel = require("../model/departmentModel.js");
+const doctorModel = require("../model/doctorSchema.js");
+const appointmentModel = require("../model/appointmentSchema.js");
+const { checkingSlotsAvailability } = require("./helpers/helpers.js");
+const crypto = require("crypto");
+const cloudinary = require("../utils/cloudinary.js");
+const Razorpay = require("razorpay");
+const walletModel = require("../model/walletSchema.js");
+const walletTransactionModel = require("../model/walletTransactionsSchem.js");
 export let otpVerify;
 
 export const sendOtp = (req, res) => {

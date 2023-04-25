@@ -1,16 +1,17 @@
-import doctorModel from "../model/doctorSchema.js";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import otpGenerator from "../otpGenerator/otpGenerator.js";
-import { generateToken } from "../jwtAuth/generateJwt.js";
-import sendMail from "../nodeMailer/nodeMailer.js";
-import cloudinary from "../utils/cloudinary.js";
-import departmentModel from "../model/departmentModel.js";
+const doctorModel = require("../model/doctorSchema.js");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const otpGenerator = require("../otpGenerator/otpGenerator.js");
+const { generateToken } = require("../jwtAuth/generateJwt.js");
+const sendMail = require("../nodeMailer/nodeMailer.js");
+const cloudinary = require("../utils/cloudinary.js");
+const departmentModel = require("../model/departmentModel.js");
 let verifyOtp;
-import { checkSlots, getAppointmentCountDoctor } from "./helpers/helpers.js";
-import appointmentModel from "../model/appointmentSchema.js";
-import walletModel from "../model/walletSchema.js";
-import walletTransactionModel from "../model/walletTransactionsSchem.js";
+const { checkSlots, getAppointmentCountDoctor } = require("./helpers/helpers.js");
+const appointmentModel = require("../model/appointmentSchema.js");
+const walletModel = require("../model/walletSchema.js");
+const walletTransactionModel = require("../model/walletTransactionsSchem.js");
+
 
 export const sendOtp = (req, res) => {
   try {

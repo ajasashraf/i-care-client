@@ -1,16 +1,17 @@
-import userModel from "../model/userSchema.js";
-import doctorModel from "../model/doctorSchema.js";
-import adminModel from "../model/adminSchema.js";
-import { generateToken } from "../jwtAuth/generateJwt.js";
-import departmentModel from "../model/departmentModel.js";
-import cloudinary from "../utils/cloudinary.js";
-import {
+const userModel = require("../model/userSchema.js");
+const doctorModel = require("../model/doctorSchema.js");
+const adminModel = require("../model/adminSchema.js");
+const { generateToken } = require("../jwtAuth/generateJwt.js");
+const departmentModel = require("../model/departmentModel.js");
+const cloudinary = require("../utils/cloudinary.js");
+const {
   getAppointmentCountGraph,
   getUserCountGraph,
   titleCase,
-} from "./helpers/helpers.js";
-import jwt from "jsonwebtoken";
-import appointmentModel from "../model/appointmentSchema.js";
+} = require("./helpers/helpers.js");
+const jwt = require("jsonwebtoken");
+const appointmentModel = require("../model/appointmentSchema.js");
+
 
 export const getUsers = (req, res) => {
   try {
