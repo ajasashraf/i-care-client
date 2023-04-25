@@ -43,4 +43,4 @@ router.get("/cancelAppointment", doctorAuthentication, cancelAppointment);
 router.get("/getDashboardDetails", doctorAuthentication, getDoctorDashboard);
 router.get("/getSales", doctorAuthentication, getSalesDoctor);
 
-export default router;
+module.exports = router;

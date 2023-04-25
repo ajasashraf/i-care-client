@@ -42,4 +42,4 @@ router.post("/editDepartment/:id", adminAuthentication, editDepartment);
 router.get("/getDashboardDetails", adminAuthentication, getDashboardDetails);
 router.get("/getSales", adminAuthentication, getSales);
 
-export default router;
+module.exports = router;

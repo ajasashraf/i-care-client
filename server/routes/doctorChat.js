@@ -8,5 +8,5 @@ router.get("/allusers/:id", getAllUsers);
 router.post("/addmsg/", addMessageDoctor);
 router.post("/getmsg/", getMessagesDoctor);
 
-export default router;
+module.exports = router;
 

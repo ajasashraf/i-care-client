@@ -25,7 +25,6 @@ const {
 } = require("../controllers/userControllers.js");
 const { userAuthentication } = require("../middlewares/Authentications.js");
 
-
 router.post("/getOtp", sendOtp);
 router.post("/signUp", verifyOtpAndSignUp);
 router.post("/signIn", signIn);
@@ -48,4 +47,4 @@ router.get("/getWallet", userAuthentication, getWallet);
 router.get("/payWithWallet", userAuthentication, payWithWallet);
 router.get("/cancelAppointment", userAuthentication, cancelAppointment);
 
-export default router;
+module.exports = router ;

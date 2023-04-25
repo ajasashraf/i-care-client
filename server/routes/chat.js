@@ -9,4 +9,4 @@ router.get("/allusers/:id", getAllDoctors);
 router.post("/addmsg/", addMessage);
 router.post("/getmsg/", getMessages);
 
-export default router;
+module.exports = router;
