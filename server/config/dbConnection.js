@@ -6,4 +6,4 @@ const connection = () => {
   );
 };
 
-export default connection;
+module.exports = connection;
