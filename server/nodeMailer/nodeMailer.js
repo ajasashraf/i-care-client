@@ -36,4 +36,4 @@ const sendMail = (email, otp) => {
   });
 };
 
-export default sendMail;
+module.exports = sendMail;
