@@ -1,14 +1,14 @@
-import fetch from 'node-fetch'
-import express from "express";
+import fetch from 'node-fetch';
+import express, { json, urlencoded } from "express";
 import logger from "morgan";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
-import {connection} from "./config/dbConnection.js";
-import {userRouter} from "./routes/user.js";
-import {adminRouter} from "./routes/admin.js";
-import {doctorRouter} from "./routes/doctor.js";
-import {chatRouter} from "./routes/chat.js";
-import {doctorChatRouter} from "./routes/doctorChat.js";
+import { connection } from "./config/dbConnection.js";
+import { userRouter } from "./routes/user.js";
+import { adminRouter } from "./routes/admin.js";
+import { doctorRouter } from "./routes/doctor.js";
+import { chatRouter } from "./routes/chat.js";
+import { doctorChatRouter } from "./routes/doctorChat.js";
 import cors from "cors";
 import { Server } from "socket.io";
 import dotenv from "dotenv";
@@ -19,9 +19,9 @@ const app = express();
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true, limit: "50mb" }));
 app.use(bodyParser.json({ limit: "50mb" }));
-app.use(express.json({ limit: "50mb" }));
+app.use(json({ limit: "50mb" }));
 app.use(
-  express.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 })
+  urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 })
 );
 app.use(logger("dev"));
 connection();
@@ -65,4 +65,3 @@ io.on("connection", (socket) => {
     }
   });
 });
-
