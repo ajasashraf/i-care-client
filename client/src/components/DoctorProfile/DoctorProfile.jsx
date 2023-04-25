@@ -285,28 +285,24 @@ const DoctorProfile = () => {
 
   const editProfilePic = (e) => {
     let image = e.target.files[0];
-    let token = localStorage.getItem("doctorToken");
-    const headers = { Authorization: token };
-
-    const formData = new FormData();
-    formData.append("imageData", image);
-
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", `${doctorUrl}editProfilePic`);
-    xhr.setRequestHeader("Authorization", token);
-    xhr.onreadystatechange = function () {
-      if (this.readyState === 4) {
-        if (this.status === 200) {
-          setResetPage((resetPage) => !resetPage);
-          toast.success("profile pic changed");
-        } else if (this.status === 401) {
-          Navigate("/signIn");
-        } else {
-          toast.error("something went wrong");
-        }
-      }
+    const reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onloadend = () => {
+      let imageData = reader.result;
+      let token = localStorage.getItem("doctorToken");
+      const headers = { Authorization: token };
+      axios
+        .post(`${doctorUrl}editProfilePic`, { imageData }, { headers })
+        .then((response) => {
+          response.status === 200 && setResetPage((resetPage) => !resetPage);
+          response.status === 200 && toast.success("profile pic changed");
+        })
+        .catch((err) => {
+          err?.response?.status === 401
+            ? Navigate("/signIn")
+            : toast.error("something went wrong");
+        });
     };
-    xhr.send(formData);
   };
 
   function checkTimeValidity(startTime, endTime) {
