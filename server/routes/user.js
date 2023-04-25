@@ -24,7 +24,7 @@ const {
   verifyPayment,
 } = require("../controllers/userControllers.js");
 const { userAuthentication } = require("../middlewares/Authentications.js");
-const express = require("express");
+
 
 router.post("/getOtp", sendOtp);
 router.post("/signUp", verifyOtpAndSignUp);
