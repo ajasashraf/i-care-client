@@ -5,13 +5,14 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "run":"nodemon app",
-    "start": "node --require @babel/register ./server/app.js",
+    "run": "nodemon app",
+    "start": "node --require @babel/register app",
     "build": "babel app.js -d dist"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/register": "^7.21.0",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
     "cloudinary": "^1.34.0",
