@@ -19,7 +19,7 @@ module.exports = {
 };
 
 
-export const sendOtp = (req, res) => {
+const sendOtp = (req, res) => {
   try {
     let userData = req.body;
     let response = {};
@@ -45,7 +45,7 @@ export const sendOtp = (req, res) => {
   }
 };
 
-export const verifyOtpAndSignUp = (req, res) => {
+const verifyOtpAndSignUp = (req, res) => {
   try {
     const user = req.body.userData;
     const otp = req.body.otp;
@@ -73,7 +73,7 @@ export const verifyOtpAndSignUp = (req, res) => {
   }
 };
 
-export const signIn = (req, res) => {
+const signIn = (req, res) => {
   try {
     let response = {};
     let { email, password } = req.body;
@@ -109,7 +109,7 @@ export const signIn = (req, res) => {
   }
 };
 
-export const userCheck = (req, res) => {
+const userCheck = (req, res) => {
   let token = req.headers.authorization;
   try {
     if (token) {
@@ -138,7 +138,7 @@ export const userCheck = (req, res) => {
   }
 };
 
-export const resendOtp = (req, res) => {
+ const resendOtp = (req, res) => {
   try {
     let email = req.body.email;
     let response = {};
@@ -159,7 +159,7 @@ export const resendOtp = (req, res) => {
   }
 };
 
-export const forgotPassOtp = (req, res) => {
+ const forgotPassOtp = (req, res) => {
   try {
     let email = req.body.email;
     let response = {};
@@ -186,7 +186,7 @@ export const forgotPassOtp = (req, res) => {
   }
 };
 
-export const resetPass = (req, res) => {
+ const resetPass = (req, res) => {
   try {
     const { otp, email, password } = req.body;
     if (otp === otpVerify) {
@@ -205,7 +205,7 @@ export const resetPass = (req, res) => {
   }
 };
 
-export const saveGoogleUser = (req, res) => {
+ const saveGoogleUser = (req, res) => {
   try {
     let response = {};
     let details = req.body;
@@ -248,7 +248,7 @@ export const saveGoogleUser = (req, res) => {
   }
 };
 
-export const getDepartment = async (req, res) => {
+ const getDepartment = async (req, res) => {
   try {
     let pageNo = req.query.pageNo;
     let searchQuery = req.query.search  ;
@@ -271,7 +271,7 @@ export const getDepartment = async (req, res) => {
   }
 };
 
-export const getDoctors = (req, res) => {
+ const getDoctors = (req, res) => {
   try {
     let departmentId = req.query.department ;
     let pageNo = req.query.page;
@@ -310,7 +310,7 @@ export const getDoctors = (req, res) => {
   }
 };
 
-export const bookAppoinment = (req, res) => {
+ const bookAppoinment = (req, res) => {
   try {
     let { date, time, doctorId } = req.body.appointment;
     let newDate = new Date(date); // create a new Date object
@@ -358,7 +358,7 @@ export const bookAppoinment = (req, res) => {
   }
 };
 
-export const initializePayment = (req, res) => {
+ const initializePayment = (req, res) => {
   try {
     const orderId = req.query.orderId;
     appointmentModel.findOne({ _id: orderId }).then((order) => {
@@ -384,7 +384,7 @@ export const initializePayment = (req, res) => {
   }
 };
 
-export const verifyPayment = (req, res) => {
+ const verifyPayment = (req, res) => {
   try {
     let body = req.body.razorpay_order_id + "|" + req.body.razorpay_payment_id;
     var expectedSignature = crypto
@@ -416,7 +416,7 @@ export const verifyPayment = (req, res) => {
   }
 };
 
-export const getUserDetails = (req, res) => {
+ const getUserDetails = (req, res) => {
   try {
     userModel.findOne({ _id: req.userLogged }, { password: 0 }).then((user) => {
       user ? res.status(200).json(user) : res.status(500);
@@ -426,7 +426,7 @@ export const getUserDetails = (req, res) => {
   }
 };
 
-export const editProfile = (req, res) => {
+ const editProfile = (req, res) => {
   try {
     const data = req.body;
     userModel.updateOne({ _id: req.userLogged }, data).then((update) => {
@@ -439,7 +439,7 @@ export const editProfile = (req, res) => {
   }
 };
 
-export const editProfilePic = (req, res) => {
+ const editProfilePic = (req, res) => {
   try {
     const image = req.body.imageData;
     cloudinary.uploader.upload(image).then((imageData) => {
@@ -459,7 +459,7 @@ export const editProfilePic = (req, res) => {
   }
 };
 
-export const getAppointmentsUser = (req, res) => {
+ const getAppointmentsUser = (req, res) => {
   try {
     appointmentModel
       .find({ patientId: req.userLogged, status: "booked" })
@@ -472,7 +472,7 @@ export const getAppointmentsUser = (req, res) => {
   }
 };
 
-export const getAppointmentHistory = (req, res) => {
+ const getAppointmentHistory = (req, res) => {
   try {
     appointmentModel
       .find({ patientId: req.userLogged, status: { $ne: "booked" } })
@@ -486,7 +486,7 @@ export const getAppointmentHistory = (req, res) => {
   }
 };
 
-export const getWallet = (req, res) => {
+ const getWallet = (req, res) => {
   try {
     walletModel
       .findOne({ userId: req.userLogged })
@@ -498,7 +498,7 @@ export const getWallet = (req, res) => {
     res.status(500);
   }
 };
-export const payWithWallet = (req, res) => {
+ const payWithWallet = (req, res) => {
   try {
     const appointmentId = req.query.appointmentId;
     appointmentModel.findOne({ _id: appointmentId }).then((appointment) => {
@@ -549,7 +549,7 @@ export const payWithWallet = (req, res) => {
   }
 };
 
-export const cancelAppointment = (req, res) => {
+ const cancelAppointment = (req, res) => {
   try {
     const appointmentId = req.query.appointmentId;
     console.log(appointmentId);
@@ -599,3 +599,28 @@ export const cancelAppointment = (req, res) => {
     res.status(500);
   }
 };
+
+
+module.exports = [
+  sendOtp,
+  verifyOtpAndSignUp,
+  signIn,
+  userCheck,
+  resendOtp,
+  forgotPassOtp,
+  resetPass,
+  saveGoogleUser,
+  getDepartment,
+  getDoctors,
+  bookAppoinment,
+  initializePayment,
+  verifyPayment,
+  getUserDetails,
+  editProfile,
+  editProfilePic,
+  getAppointmentsUser,
+  getAppointmentHistory,
+  getWallet,
+  payWithWallet,
+  cancelAppointment
+]
