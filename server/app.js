@@ -39,8 +39,8 @@ app.use("/", userRouter);
 app.use("/doctor", doctorRouter);
 app.use('/chat', chatRouter)
 app.use('/doctor/chat',doctorChatRouter)
-const server = app.listen(2000, () => {
-  console.log("server connected to port 2000");
+const server = app.listen(3000, () => {
+  console.log("server connected to port 3000");
 });
 
 const io = new Server(server, {
