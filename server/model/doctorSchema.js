@@ -82,4 +82,4 @@ const doctorSchema = new Schema({
 });
 
 const doctorModel = mongoose.model("Doctor", doctorSchema);
-export default doctorModel;
+module.exports =  doctorModel;

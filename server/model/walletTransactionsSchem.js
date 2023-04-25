@@ -19,4 +19,4 @@ const walletTransactionModel = mongoose.model(
   "walletTransaction",
   transactionsSchema
 );
-export default walletTransactionModel;
+module.exports =  walletTransactionModel;

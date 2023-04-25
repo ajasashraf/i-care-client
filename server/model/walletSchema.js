@@ -19,4 +19,4 @@ const walletSchema = new Schema({
 });
 
 const walletModel = mongoose.model("wallet", walletSchema);
-export default walletModel;
+module.exports =  walletModel;
