@@ -1,3 +1,5 @@
+
+import fetch from "node-fetch";
 import express from "express";
 import logger from "morgan";
 import cookieParser from "cookie-parser";
@@ -11,6 +13,7 @@ import doctorChatRouter from "./routes/doctorChat.js";
 import cors from "cors";
 import { Server } from "socket.io";
 import dotenv from "dotenv";
+
 dotenv.config();
 const app = express();
 
