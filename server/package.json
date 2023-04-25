@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon ./app",
-    "start": "node --experimental-modules -r esm app"
+    "start": "node --experimental-modules -r esm app.js"
 
   },
   "author": "",
