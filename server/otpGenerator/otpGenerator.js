@@ -9,4 +9,4 @@ const otpGenerator = () => {
   });
 };
 
-export default otpGenerator;
+module.exports =  otpGenerator;
