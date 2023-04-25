@@ -5,9 +5,9 @@
   "main": "app.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon ./app",
-    "start": "node --experimental-modules -r esm app.js"
-
+    "run": "nodemon app",
+    "start": "babel-node app.js",
+    "build": "babel app.js -d dist"
   },
   "author": "",
   "license": "ISC",
@@ -26,5 +26,11 @@
     "nodemon": "^2.0.20",
     "razorpay": "^2.8.6",
     "socket.io": "^4.6.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "babel-cli": "^6.26.0"
   }
 }
