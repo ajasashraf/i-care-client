@@ -13,7 +13,11 @@ const cloudinary = require("../utils/cloudinary.js");
 const Razorpay = require("razorpay");
 const walletModel = require("../model/walletSchema.js");
 const walletTransactionModel = require("../model/walletTransactionsSchem.js");
-export let otpVerify;
+let otpVerify;
+module.exports = {
+  otpVerify
+};
+
 
 export const sendOtp = (req, res) => {
   try {
