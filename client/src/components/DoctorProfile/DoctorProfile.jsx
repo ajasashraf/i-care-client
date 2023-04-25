@@ -370,66 +370,66 @@ const DoctorProfile = () => {
 
   const renderTabContent = () => {
     switch (activeTab) {
-      case "profile":
-        return (
-          <div className=" ">
-            <div className="max-w-7xl mx-auto py-12 sm:px-6 lg:px-8">
-              <div className="text-center w-full department-head mb-4">
-                <h1>Your Details</h1>
-              </div>
-              <div className="max-w-3xl mx-auto">
-                <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-                  <div className="px-4 py-5 sm:px-6">
-                    <h1 className="text-2xl font-medium text-gray-900">
-                      {docDetails?.fullName}
-                    </h1>
-                    <p className="mt-1 max-w-2xl text-sm text-gray-500">
-                      {docDetails?.department?.name}
-                    </p>
-                  </div>
-                  <div className="border-t border-gray-200 px-4 py-5 sm:p-0">
-                    <dl className="sm:divide-y sm:divide-gray-200">
-                      <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">
+    case "profile":
+      return (
+        <div className=" ">
+          <div className="max-w-7xl mx-auto py-12 sm:px-6 lg:px-8">
+            <div className="text-center w-full department-head mb-4">
+              <h1>Your Details</h1>
+            </div>
+            <div className="max-w-3xl mx-auto">
+              <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+                <div className="px-4 py-5 sm:px-6">
+                  <h1 className="text-2xl font-medium text-gray-900">
+                    {docDetails?.fullName}
+                  </h1>
+                  <p className="mt-1 max-w-2xl text-sm text-gray-500">
+                    {docDetails?.department?.name}
+                  </p>
+                </div>
+                <div className="border-t border-gray-200 px-4 py-5 sm:p-0">
+                  <dl className="sm:divide-y sm:divide-gray-200">
+                    <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt className="text-sm font-medium text-gray-500">
                           Phone
-                        </dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                          {docDetails?.phone}
-                        </dd>
-                      </div>
-                      <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">
+                      </dt>
+                      <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {docDetails?.phone}
+                      </dd>
+                    </div>
+                    <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt className="text-sm font-medium text-gray-500">
                           Address
-                        </dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                          {docDetails?.address}
-                        </dd>
-                      </div>
-                      <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">
+                      </dt>
+                      <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {docDetails?.address}
+                      </dd>
+                    </div>
+                    <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt className="text-sm font-medium text-gray-500">
                           Bio
-                        </dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                          {docDetails?.bio}
-                        </dd>
-                      </div>
-                      <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">
+                      </dt>
+                      <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {docDetails?.bio}
+                      </dd>
+                    </div>
+                    <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt className="text-sm font-medium text-gray-500">
                           Education
-                        </dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                          {docDetails?.qualification}
-                        </dd>
-                      </div>
-                      <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                        <dt className="text-sm font-medium text-gray-500">
+                      </dt>
+                      <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {docDetails?.qualification}
+                      </dd>
+                    </div>
+                    <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      <dt className="text-sm font-medium text-gray-500">
                           Experience
-                        </dt>
-                        <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
-                          {docDetails?.experience} years
-                        </dd>
-                      </div>
-                      {/* <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                      </dt>
+                      <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
+                        {docDetails?.experience} years
+                      </dd>
+                    </div>
+                    {/* <div className="py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                                                 <dt className="text-sm font-medium text-gray-500">Available Dates</dt>
                                                 <dd className="mt-1 text-sm text-gray-900 sm:mt-0 sm:col-span-2">
                                                     <input
@@ -440,658 +440,658 @@ const DoctorProfile = () => {
                                                     />
                                                 </dd>
                                             </div> */}
-                    </dl>
-                  </div>
-                  <div className="bg-gray-50 px-4 py-4 sm:px-6 sm:flex sm:flex-row-reverse ">
-                    <button
-                      type="button"
-                      className=" inline-flex bg-mainColor hover:bg-secColor items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white edit-profile-doctor  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
-                      onClick={() => setActiveTab("edit-profile")}
-                    >
+                  </dl>
+                </div>
+                <div className="bg-gray-50 px-4 py-4 sm:px-6 sm:flex sm:flex-row-reverse ">
+                  <button
+                    type="button"
+                    className=" inline-flex bg-mainColor hover:bg-secColor items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white edit-profile-doctor  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:ml-3 sm:w-auto sm:text-sm"
+                    onClick={() => setActiveTab("edit-profile")}
+                  >
                       Edit Profile
-                    </button>
-                  </div>
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-        );
-      case "sales":
-        return (
-          <>
-            <h2 className="text-xl text-textBlue font-bold mb-4">Your Sales</h2>
-            {sales.length === 0 ? (
-              <div className="flex flex-col items-center">
-                <BellIcon className="h-20 w-20 text-gray-300 mb-4 mt-4" />
-                <p className="text-lg leading-7 text-gray-500">
+        </div>
+      );
+    case "sales":
+      return (
+        <>
+          <h2 className="text-xl text-textBlue font-bold mb-4">Your Sales</h2>
+          {sales.length === 0 ? (
+            <div className="flex flex-col items-center">
+              <BellIcon className="h-20 w-20 text-gray-300 mb-4 mt-4" />
+              <p className="text-lg leading-7 text-gray-500">
                   You have no sales.
-                </p>
-              </div>
-            ) : (
-              <div className="bg-gray-100 p-4 md:max-w-full mx-auto">
-                <h2 className="text-xl font-bold mb-4">Sales</h2>
-                {sales.map((sale) => (
-                  <div
-                    className="mb-2 bg-white rounded-lg p-3 flex items-center justify-between"
-                    key={sale._id}
+              </p>
+            </div>
+          ) : (
+            <div className="bg-gray-100 p-4 md:max-w-full mx-auto">
+              <h2 className="text-xl font-bold mb-4">Sales</h2>
+              {sales.map((sale) => (
+                <div
+                  className="mb-2 bg-white rounded-lg p-3 flex items-center justify-between"
+                  key={sale._id}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth={1.5}
+                    stroke="currentColor"
+                    className="w-6 h-6 mr-3"
                   >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                    />
+                  </svg>
+                  <p className="text-gray-600 flex-grow  tracking-wide	text-textBlue text-sm">
+                    {" "}
+                      Date:{" "}
+                    <a className="text-textBlue font-semibold me-3">
+                      {sale?.date.substring(0, 10)}
+                    </a>{" "}
+                      Time:{" "}
+                    <a className="text-textBlue font-semibold me-3">
+                      {" "}
+                      {sale?.slot}
+                    </a>{" "}
+                      booked on:{" "}
+                    <a className="text-textBlue font-semibold me-3">
+                      {sale?.createdAt.substring(0, 10)}
+                    </a>
+                      status:
+                    {sale?.status === "visited" && (
+                      <a className="text-textBlue font-semibold me-3">
+                          Consulted
+                      </a>
+                    )}
+                    {sale?.status === "unVisited" && (
+                      <a className="text-textBlue font-semibold me-3">
+                          not consulted
+                      </a>
+                    )}
+                    {sale?.status === "cancelled" && (
+                      <a className="text-textBlue font-semibold me-3">
+                          Cancelled
+                      </a>
+                    )}
+                    {sale?.status === "booked" && (
+                      <a className="text-textBlue font-semibold me-3">
+                          upcoming
+                      </a>
+                    )}
+                      amount:
+                    <a className="text-textBlue font-semibold me-3">
+                      {sale?.price}
+                    </a>
+                  </p>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      );
+
+    case "appointments":
+      return (
+        <>
+          <h2 className="text-xl text-textBlue font-bold mb-4">
+              Your appointments
+          </h2>
+          <div className="flex  w-full justify-end bg-gray-100">
+            <div className="flex mt-2    ">
+              <input
+                type="date"
+                id="startDate"
+                className="me-2 rounded-md border border-gray-300 p-2 ms-auto"
+                value={date}
+                onChange={(e) => setDate(e.target.value)}
+                // eslint-disable-next-line react/jsx-no-comment-textnodes
+              />
+
+              <p
+                className="ms-auto me-4 text-sm text-primary cursor-pointer my-auto"
+                onClick={() => setDate("")}
+              >
+                  Clear All
+              </p>
+            </div>
+          </div>
+          {appointments.length === 0 ? (
+            <div className="flex flex-col items-center">
+              <BellIcon className="h-20 w-20 text-gray-300 mb-4" />
+              <p className="text-lg leading-7 text-gray-500">
+                  You have no appointments scheduled.
+              </p>
+            </div>
+          ) : (
+            <div className="bg-gray-100 p-4 md:max-w-full mx-auto">
+              {appointments.map((appointment) => (
+                <div
+                  className="mb-2 bg-white rounded-lg p-3 flex flex-col md:flex-row items-center justify-between"
+                  key={appointment._id}
+                >
+                  <div className="flex-grow text-gray-600 text-sm flex">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
-                      strokeWidth={1.5}
+                      strokeWidth="1.5"
                       stroke="currentColor"
                       className="w-6 h-6 mr-3"
                     >
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
-                        d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
+                        d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
                       />
                     </svg>
-                    <p className="text-gray-600 flex-grow  tracking-wide	text-textBlue text-sm">
-                      {" "}
-                      Date:{" "}
-                      <a className="text-textBlue font-semibold me-3">
-                        {sale?.date.substring(0, 10)}
+                    <p className="text-textBlue">
+                      <a className="font-semibold">
+                        {appointment.patientId?.fullName}
                       </a>{" "}
-                      Time:{" "}
-                      <a className="text-textBlue font-semibold me-3">
-                        {" "}
-                        {sale?.slot}
+                        have booked an appointment on{" "}
+                      <a className="font-semibold">
+                        {appointment?.date.substring(0, 10)}
                       </a>{" "}
-                      booked on:{" "}
-                      <a className="text-textBlue font-semibold me-3">
-                        {sale?.createdAt.substring(0, 10)}
-                      </a>
-                      status:
-                      {sale?.status === "visited" && (
-                        <a className="text-textBlue font-semibold me-3">
-                          Consulted
-                        </a>
-                      )}
-                      {sale?.status === "unVisited" && (
-                        <a className="text-textBlue font-semibold me-3">
-                          not consulted
-                        </a>
-                      )}
-                      {sale?.status === "cancelled" && (
-                        <a className="text-textBlue font-semibold me-3">
-                          Cancelled
-                        </a>
-                      )}
-                      {sale?.status === "booked" && (
-                        <a className="text-textBlue font-semibold me-3">
-                          upcoming
-                        </a>
-                      )}
-                      amount:
-                      <a className="text-textBlue font-semibold me-3">
-                        {sale?.price}
-                      </a>
+                        at slot{" "}
+                      <a className="font-semibold">{appointment.slot}</a>
                     </p>
                   </div>
-                ))}
-              </div>
-            )}
-          </>
-        );
-
-      case "appointments":
-        return (
-          <>
-            <h2 className="text-xl text-textBlue font-bold mb-4">
-              Your appointments
-            </h2>
-            <div className="flex  w-full justify-end bg-gray-100">
-              <div className="flex mt-2    ">
-                <input
-                  type="date"
-                  id="startDate"
-                  className="me-2 rounded-md border border-gray-300 p-2 ms-auto"
-                  value={date}
-                  onChange={(e) => setDate(e.target.value)}
-                  // eslint-disable-next-line react/jsx-no-comment-textnodes
-                />
-
-                <p
-                  className="ms-auto me-4 text-sm text-primary cursor-pointer my-auto"
-                  onClick={() => setDate("")}
-                >
-                  Clear All
-                </p>
-              </div>
-            </div>
-            {appointments.length === 0 ? (
-              <div className="flex flex-col items-center">
-                <BellIcon className="h-20 w-20 text-gray-300 mb-4" />
-                <p className="text-lg leading-7 text-gray-500">
-                  You have no appointments scheduled.
-                </p>
-              </div>
-            ) : (
-              <div className="bg-gray-100 p-4 md:max-w-full mx-auto">
-                {appointments.map((appointment) => (
-                  <div
-                    className="mb-2 bg-white rounded-lg p-3 flex flex-col md:flex-row items-center justify-between"
-                    key={appointment._id}
-                  >
-                    <div className="flex-grow text-gray-600 text-sm flex">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth="1.5"
-                        stroke="currentColor"
-                        className="w-6 h-6 mr-3"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"
-                        />
-                      </svg>
-                      <p className="text-textBlue">
-                        <a className="font-semibold">
-                          {appointment.patientId?.fullName}
-                        </a>{" "}
-                        have booked an appointment on{" "}
-                        <a className="font-semibold">
-                          {appointment?.date.substring(0, 10)}
-                        </a>{" "}
-                        at slot{" "}
-                        <a className="font-semibold">{appointment.slot}</a>
-                      </p>
-                    </div>
-                    <div className="flex justify-center mt-2">
-                      <button
-                        className="bg-green-500 hover:bg-green-600 text-white font-bold md:py-1 lg:py-2 px-2 lg:px-4 rounded mr-2 text-sm"
-                        onClick={() => appointmentVisited(appointment._id)}
-                      >
+                  <div className="flex justify-center mt-2">
+                    <button
+                      className="bg-green-500 hover:bg-green-600 text-white font-bold md:py-1 lg:py-2 px-2 lg:px-4 rounded mr-2 text-sm"
+                      onClick={() => appointmentVisited(appointment._id)}
+                    >
                         Visited
-                      </button>
-                      <button
-                        className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold md:py-1 lg:py-2 px-2 lg:px-4 rounded mr-2 text-sm"
-                        onClick={() => appointmentUnVisited(appointment._id)}
-                      >
+                    </button>
+                    <button
+                      className="bg-yellow-500 hover:bg-yellow-600 text-white font-bold md:py-1 lg:py-2 px-2 lg:px-4 rounded mr-2 text-sm"
+                      onClick={() => appointmentUnVisited(appointment._id)}
+                    >
                         Unvisited
-                      </button>
-                      <button
-                        className="bg-gray-500 hover:bg-gray-600 text-white font-bold md:py-1 lg:py-2 px-2 lg:px-4 rounded text-sm"
-                        onClick={() => appointmentCancel(appointment._id)}
-                      >
+                    </button>
+                    <button
+                      className="bg-gray-500 hover:bg-gray-600 text-white font-bold md:py-1 lg:py-2 px-2 lg:px-4 rounded text-sm"
+                      onClick={() => appointmentCancel(appointment._id)}
+                    >
                         Cancel
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </>
+      );
+
+    case "edit-profile":
+      return (
+        <div>
+          <h2 className="text-xl text-textBlue font-bold mb-4">
+              Edit Profile
+          </h2>
+          <form onSubmit={editProfile} ref={editFormRef}>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 font-bold mb-2"
+                htmlFor="email"
+              >
+                  Email
+              </label>
+              <input
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                type="email"
+                id="email"
+                name="email"
+                placeholder={docDetails?.email}
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 font-bold mb-2"
+                htmlFor="phone"
+              >
+                  Phone Number
+              </label>
+              <input
+                onChange={(e) => {
+                  const inputVal = e.target.value;
+                  // Remove all non-digit characters
+                  const strippedVal = inputVal.replace(/\D/g, "");
+                  // Limit to 10 digits
+                  const limitedVal = strippedVal.slice(0, 10);
+                  setPhone(limitedVal);
+
+                  // Check for valid phone number
+                  if (limitedVal.length < 10 || limitedVal.length > 10) {
+                    e.target.setCustomValidity(
+                      "Phone number must be exactly 10 digits."
+                    );
+                  } else {
+                    e.target.setCustomValidity("");
+                  }
+                }}
+                className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                type="tel"
+                id="phone"
+                name="phone"
+                value={phone}
+                placeholder={docDetails?.phone}
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 font-bold mb-2"
+                htmlFor="address"
+              >
+                  Address
+              </label>
+              <input
+                onChange={(e) => {
+                  const re = /^\s*$/;
+                  if (re.test(e.target.value)) {
+                    setAddress("");
+                    setCustomValidity("Full Name cannot contain only spaces");
+                  } else {
+                    setAddress(e.target.value);
+                    setError("");
+                  }
+                }}
+                className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                type="text"
+                id="address"
+                name="address"
+                value={address}
+                placeholder={docDetails?.address}
+              />
+              {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 font-bold mb-2"
+                htmlFor="address"
+              >
+                  Bio
+              </label>
+              <input
+                onChange={(e) => {
+                  const re = /^\s*$/;
+                  if (re.test(e.target.value)) {
+                    setBio("");
+                    setCustomValidity("Full Name cannot contain only spaces");
+                  } else {
+                    setBio(e.target.value);
+                    setError("");
+                  }
+                }}
+                className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                type="text"
+                id="address"
+                name="address"
+                value={bio}
+                placeholder={docDetails?.bio}
+              />
+              {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 font-bold mb-2"
+                htmlFor="address"
+              >
+                  Experience
+              </label>
+              <input
+                onChange={(e) => setExperience(e.target.value)}
+                className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                type="number"
+                id="address"
+                name="address"
+                placeholder={docDetails?.experience}
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 font-bold mb-2"
+                htmlFor="address"
+              >
+                  Price(online)
+              </label>
+              <input
+                onChange={(e) => setPriceOnline(e.target.value)}
+                className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                type="number"
+                id="address"
+                name="address"
+                placeholder={docDetails?.priceOnline}
+              />
+            </div>
+            <div className="mb-4">
+              <label
+                className="block text-gray-700 font-bold mb-2"
+                htmlFor="address"
+              >
+                  Price(offline)
+              </label>
+              <input
+                onChange={(e) => setPriceOffline(e.target.value)}
+                className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
+                type="number"
+                id="address"
+                name="address"
+                placeholder={docDetails?.priceOffline}
+              />
+            </div>
+            <button className="save-button text-white py-2 px-4 rounded-full bg-mainColor hover:bg-secColor  focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50">
+                Save Changes
+            </button>
+          </form>
+        </div>
+      );
+
+    case "timings":
+      return (
+        <>
+          <form
+            onSubmit={handleSubmit}
+            className="w-full max-w-lg mx-auto"
+            ref={timeFormRef}
+          >
+            <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+              <h2 className="text-2xl font-bold mb-6">Add Timing</h2>
+              <div className="flex flex-wrap -mx-2 mb-4">
+                <div className="w-full md:w-1/2 px-2">
+                  <label
+                    htmlFor="day_of_week"
+                    className="block text-gray-700 font-bold mb-2 mt-2 "
+                  >
+                      Day of Week:
+                  </label>
+                  <div className="relative">
+                    <select
+                      required
+                      id="day_of_week"
+                      name="day_of_week"
+                      onChange={handleDayOfWeekChange}
+                      className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                    >
+                      <option value="">Please select</option>
+                      <option value="monday">Monday</option>
+                      <option value="tuesday">Tuesday</option>
+                      <option value="wednesday">Wednesday</option>
+                      <option value="thursday">Thursday</option>
+                      <option value="friday">Friday</option>
+                      <option value="saturday">Saturday</option>
+                      <option value="sunday">Sunday</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="w-full md:w-1/2 px-2">
+                  <label
+                    htmlFor="start_time"
+                    className="block text-gray-700 font-bold mb-2 mt-2"
+                  >
+                      Start Time:
+                  </label>
+                  <div className="relative">
+                    <select
+                      required
+                      id="start_time"
+                      name="start_time"
+                      onChange={handleStartTimeChange}
+                      className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                    >
+                      <option value="">Please select</option>
+                      <option value="07:00 AM">07:00 AM</option>
+                      <option value="08:00 AM">08:00 AM</option>
+                      <option value="09:00 AM">09:00 AM</option>
+                      <option value="10:00 AM">10:00 AM</option>
+                      <option value="11:00 AM">11:00 AM</option>
+                      <option value="12:00 PM">12:00 PM</option>
+                      <option value="01:00 PM">01:00 PM</option>
+                      <option value="02:00 PM">02:00 PM</option>
+                      <option value="03:00 PM">03:00 PM</option>
+                      <option value="04:00 PM">04:00 PM</option>
+                      <option value="05:00 PM">05:00 PM</option>
+                      <option value="06:00 PM">06:00 PM</option>
+                      <option value="07:00 PM">07:00 PM</option>
+                      <option value="08:00 PM">08:00 PM</option>
+                      <option value="09:00 PM">09:00 PM</option>
+                      <option value="10:00 PM">10:00 PM</option>
+                      <option value="11:00 PM">11:00 PM</option>
+                      <option value="12:00 AM">12:00 AM</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="w-full md:w-1/2 px-2">
+                  <label
+                    htmlFor="end_time"
+                    className="block text-gray-700 font-bold mb-2 mt-2"
+                  >
+                      End Time:
+                  </label>
+                  <div className="relative">
+                    <select
+                      required
+                      id="end_time"
+                      name="end_time"
+                      onChange={handleEndTimeChange}
+                      className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                    >
+                      <option value="">Please select</option>
+                      <option value="07:00 AM">07:00 AM</option>
+                      <option value="08:00 AM">08:00 AM</option>
+                      <option value="09:00 AM">09:00 AM</option>
+                      <option value="10:00 AM">10:00 AM</option>
+                      <option value="11:00 AM">11:00 AM</option>
+                      <option value="12:00 PM">12:00 PM</option>
+                      <option value="01:00 PM">01:00 PM</option>
+                      <option value="02:00 PM">02:00 PM</option>
+                      <option value="03:00 PM">03:00 PM</option>
+                      <option value="04:00 PM">04:00 PM</option>
+                      <option value="05:00 PM">05:00 PM</option>
+                      <option value="06:00 PM">06:00 PM</option>
+                      <option value="07:00 PM">07:00 PM</option>
+                      <option value="08:00 PM">08:00 PM</option>
+                      <option value="09:00 PM">09:00 PM</option>
+                      <option value="10:00 PM">10:00 PM</option>
+                      <option value="11:00 PM">11:00 PM</option>
+                      <option value="12:00 AM">12:00 AM</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div className="w-full md:w-1/2 px-2">
+                  <label
+                    htmlFor="price"
+                    className="block text-gray-700 font-bold mb-2 mt-2"
+                  >
+                      Slots
+                  </label>
+                  <input
+                    required
+                    id="price"
+                    name="price"
+                    type="number"
+                    step="0.01"
+                    placeholder="Enter slots"
+                    className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                    onChange={(e) => setSlots(e.target.value)}
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <button
+                  type="submit"
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                >
+                    Submit
+                </button>
+              </div>
+            </div>
+          </form>
+          <div className="border border-gray-400 rounded-lg px-6 py-4">
+            <h3 className="text-lg font-bold mb-4">Availability</h3>
+            {docDetails?.timings.length === 0 ? (
+              <p>No availability found.</p>
+            ) : (
+              <ul className="list-disc pl-4">
+                {docDetails?.timings.map((time, index) => (
+                  <li key={index} className="mb-3">
+                    <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start">
+                      <p className="text-lg font-semibold mb-2 sm:mr-4">
+                        <span className="text-gray-700 mr-2">
+                          {time?.day}:
+                        </span>
+                        <span>
+                          {time?.startTime} - {time?.endTime}
+                        </span>
+                      </p>
+                      <button
+                        className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg"
+                        onClick={() => deleteSlot(index)}
+                      >
+                          Delete
                       </button>
                     </div>
-                  </div>
+                    <p className="text-gray-700">
+                      <span className="font-semibold mr-2">Slots:</span>
+                      {time.slots}
+                    </p>
+                  </li>
                 ))}
-              </div>
+              </ul>
             )}
-          </>
-        );
-
-      case "edit-profile":
-        return (
-          <div>
-            <h2 className="text-xl text-textBlue font-bold mb-4">
-              Edit Profile
-            </h2>
-            <form onSubmit={editProfile} ref={editFormRef}>
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 font-bold mb-2"
-                  htmlFor="email"
-                >
-                  Email
-                </label>
-                <input
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder={docDetails?.email}
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 font-bold mb-2"
-                  htmlFor="phone"
-                >
-                  Phone Number
-                </label>
-                <input
-                  onChange={(e) => {
-                    const inputVal = e.target.value;
-                    // Remove all non-digit characters
-                    const strippedVal = inputVal.replace(/\D/g, "");
-                    // Limit to 10 digits
-                    const limitedVal = strippedVal.slice(0, 10);
-                    setPhone(limitedVal);
-
-                    // Check for valid phone number
-                    if (limitedVal.length < 10 || limitedVal.length > 10) {
-                      e.target.setCustomValidity(
-                        "Phone number must be exactly 10 digits."
-                      );
-                    } else {
-                      e.target.setCustomValidity("");
-                    }
-                  }}
-                  className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-                  type="tel"
-                  id="phone"
-                  name="phone"
-                  value={phone}
-                  placeholder={docDetails?.phone}
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 font-bold mb-2"
-                  htmlFor="address"
-                >
-                  Address
-                </label>
-                <input
-                  onChange={(e) => {
-                    const re = /^\s*$/;
-                    if (re.test(e.target.value)) {
-                      setAddress("");
-                      setCustomValidity("Full Name cannot contain only spaces");
-                    } else {
-                      setAddress(e.target.value);
-                      setError("");
-                    }
-                  }}
-                  className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-                  type="text"
-                  id="address"
-                  name="address"
-                  value={address}
-                  placeholder={docDetails?.address}
-                />
-                {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
-              </div>
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 font-bold mb-2"
-                  htmlFor="address"
-                >
-                  Bio
-                </label>
-                <input
-                  onChange={(e) => {
-                    const re = /^\s*$/;
-                    if (re.test(e.target.value)) {
-                      setBio("");
-                      setCustomValidity("Full Name cannot contain only spaces");
-                    } else {
-                      setBio(e.target.value);
-                      setError("");
-                    }
-                  }}
-                  className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-                  type="text"
-                  id="address"
-                  name="address"
-                  value={bio}
-                  placeholder={docDetails?.bio}
-                />
-                {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
-              </div>
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 font-bold mb-2"
-                  htmlFor="address"
-                >
-                  Experience
-                </label>
-                <input
-                  onChange={(e) => setExperience(e.target.value)}
-                  className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-                  type="number"
-                  id="address"
-                  name="address"
-                  placeholder={docDetails?.experience}
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 font-bold mb-2"
-                  htmlFor="address"
-                >
-                  Price(online)
-                </label>
-                <input
-                  onChange={(e) => setPriceOnline(e.target.value)}
-                  className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-                  type="number"
-                  id="address"
-                  name="address"
-                  placeholder={docDetails?.priceOnline}
-                />
-              </div>
-              <div className="mb-4">
-                <label
-                  className="block text-gray-700 font-bold mb-2"
-                  htmlFor="address"
-                >
-                  Price(offline)
-                </label>
-                <input
-                  onChange={(e) => setPriceOffline(e.target.value)}
-                  className="w-full px-3 py-2 placeholder-gray-400 border rounded-lg focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50"
-                  type="number"
-                  id="address"
-                  name="address"
-                  placeholder={docDetails?.priceOffline}
-                />
-              </div>
-              <button className="save-button text-white py-2 px-4 rounded-full bg-mainColor hover:bg-secColor  focus:outline-none focus:ring focus:ring-blue-500 focus:ring-opacity-50">
-                Save Changes
-              </button>
-            </form>
           </div>
-        );
-
-      case "timings":
-        return (
-          <>
-            <form
-              onSubmit={handleSubmit}
-              className="w-full max-w-lg mx-auto"
-              ref={timeFormRef}
-            >
-              <div className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                <h2 className="text-2xl font-bold mb-6">Add Timing</h2>
-                <div className="flex flex-wrap -mx-2 mb-4">
-                  <div className="w-full md:w-1/2 px-2">
-                    <label
-                      htmlFor="day_of_week"
-                      className="block text-gray-700 font-bold mb-2 mt-2 "
-                    >
-                      Day of Week:
-                    </label>
-                    <div className="relative">
-                      <select
-                        required
-                        id="day_of_week"
-                        name="day_of_week"
-                        onChange={handleDayOfWeekChange}
-                        className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-                      >
-                        <option value="">Please select</option>
-                        <option value="monday">Monday</option>
-                        <option value="tuesday">Tuesday</option>
-                        <option value="wednesday">Wednesday</option>
-                        <option value="thursday">Thursday</option>
-                        <option value="friday">Friday</option>
-                        <option value="saturday">Saturday</option>
-                        <option value="sunday">Sunday</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="w-full md:w-1/2 px-2">
-                    <label
-                      htmlFor="start_time"
-                      className="block text-gray-700 font-bold mb-2 mt-2"
-                    >
-                      Start Time:
-                    </label>
-                    <div className="relative">
-                      <select
-                        required
-                        id="start_time"
-                        name="start_time"
-                        onChange={handleStartTimeChange}
-                        className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-                      >
-                        <option value="">Please select</option>
-                        <option value="07:00 AM">07:00 AM</option>
-                        <option value="08:00 AM">08:00 AM</option>
-                        <option value="09:00 AM">09:00 AM</option>
-                        <option value="10:00 AM">10:00 AM</option>
-                        <option value="11:00 AM">11:00 AM</option>
-                        <option value="12:00 PM">12:00 PM</option>
-                        <option value="01:00 PM">01:00 PM</option>
-                        <option value="02:00 PM">02:00 PM</option>
-                        <option value="03:00 PM">03:00 PM</option>
-                        <option value="04:00 PM">04:00 PM</option>
-                        <option value="05:00 PM">05:00 PM</option>
-                        <option value="06:00 PM">06:00 PM</option>
-                        <option value="07:00 PM">07:00 PM</option>
-                        <option value="08:00 PM">08:00 PM</option>
-                        <option value="09:00 PM">09:00 PM</option>
-                        <option value="10:00 PM">10:00 PM</option>
-                        <option value="11:00 PM">11:00 PM</option>
-                        <option value="12:00 AM">12:00 AM</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="w-full md:w-1/2 px-2">
-                    <label
-                      htmlFor="end_time"
-                      className="block text-gray-700 font-bold mb-2 mt-2"
-                    >
-                      End Time:
-                    </label>
-                    <div className="relative">
-                      <select
-                        required
-                        id="end_time"
-                        name="end_time"
-                        onChange={handleEndTimeChange}
-                        className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-                      >
-                        <option value="">Please select</option>
-                        <option value="07:00 AM">07:00 AM</option>
-                        <option value="08:00 AM">08:00 AM</option>
-                        <option value="09:00 AM">09:00 AM</option>
-                        <option value="10:00 AM">10:00 AM</option>
-                        <option value="11:00 AM">11:00 AM</option>
-                        <option value="12:00 PM">12:00 PM</option>
-                        <option value="01:00 PM">01:00 PM</option>
-                        <option value="02:00 PM">02:00 PM</option>
-                        <option value="03:00 PM">03:00 PM</option>
-                        <option value="04:00 PM">04:00 PM</option>
-                        <option value="05:00 PM">05:00 PM</option>
-                        <option value="06:00 PM">06:00 PM</option>
-                        <option value="07:00 PM">07:00 PM</option>
-                        <option value="08:00 PM">08:00 PM</option>
-                        <option value="09:00 PM">09:00 PM</option>
-                        <option value="10:00 PM">10:00 PM</option>
-                        <option value="11:00 PM">11:00 PM</option>
-                        <option value="12:00 AM">12:00 AM</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="w-full md:w-1/2 px-2">
-                    <label
-                      htmlFor="price"
-                      className="block text-gray-700 font-bold mb-2 mt-2"
-                    >
-                      Slots
-                    </label>
-                    <input
-                      required
-                      id="price"
-                      name="price"
-                      type="number"
-                      step="0.01"
-                      placeholder="Enter slots"
-                      className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
-                      onChange={(e) => setSlots(e.target.value)}
-                    />
-                  </div>
-                </div>
-                <div className="flex items-center justify-center">
-                  <button
-                    type="submit"
-                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-                  >
-                    Submit
-                  </button>
-                </div>
-              </div>
-            </form>
-            <div className="border border-gray-400 rounded-lg px-6 py-4">
-              <h3 className="text-lg font-bold mb-4">Availability</h3>
-              {docDetails?.timings.length === 0 ? (
-                <p>No availability found.</p>
-              ) : (
-                <ul className="list-disc pl-4">
-                  {docDetails?.timings.map((time, index) => (
-                    <li key={index} className="mb-3">
-                      <div className="flex flex-col sm:flex-row justify-between items-center sm:items-start">
-                        <p className="text-lg font-semibold mb-2 sm:mr-4">
-                          <span className="text-gray-700 mr-2">
-                            {time?.day}:
-                          </span>
-                          <span>
-                            {time?.startTime} - {time?.endTime}
-                          </span>
-                        </p>
-                        <button
-                          className="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg"
-                          onClick={() => deleteSlot(index)}
-                        >
-                          Delete
-                        </button>
-                      </div>
-                      <p className="text-gray-700">
-                        <span className="font-semibold mr-2">Slots:</span>
-                        {time.slots}
-                      </p>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-          </>
-        );
-      case "dashboard":
-        return (
-          <Container maxWidth="lg" sx={{ mt: 4 }}>
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card
+        </>
+      );
+    case "dashboard":
+      return (
+        <Container maxWidth="lg" sx={{ mt: 4 }}>
+          <Grid container spacing={3}>
+            <Grid item xs={12} sm={6} md={3}>
+              <Card
+                sx={{
+                  backgroundColor: theme.palette.primary.main,
+                  color: theme.palette.common.white,
+                  boxShadow: theme.shadows[4],
+                  borderRadius: theme.shape.borderRadius,
+                  padding: theme.spacing(2),
+                }}
+              >
+                <Box
                   sx={{
-                    backgroundColor: theme.palette.primary.main,
-                    color: theme.palette.common.white,
-                    boxShadow: theme.shadows[4],
-                    borderRadius: theme.shape.borderRadius,
-                    padding: theme.spacing(2),
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
                   }}
                 >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                    }}
+                  <FaUserAlt size={40} />
+                  <Typography
+                    variant="h6"
+                    className="mx-auto"
+                    sx={{ fontSize: "16px" }}
                   >
-                    <FaUserAlt size={40} />
-                    <Typography
-                      variant="h6"
-                      className="mx-auto"
-                      sx={{ fontSize: "16px" }}
-                    >
                       Total Patients Treated
-                    </Typography>
-                  </Box>
-                  <Typography variant="h3" sx={{ mt: 2, fontSize: "2.2rem" }}>
-                    {patientCount}
                   </Typography>
-                </Card>
-              </Grid>
-              <Grid item xs={12} sm={6} md={3}>
-                <Card
-                  sx={{
-                    backgroundColor: theme.palette.secondary.main,
-                    color: theme.palette.common.white,
-                    boxShadow: theme.shadows[4],
-                    borderRadius: theme.shape.borderRadius,
-                    padding: theme.spacing(2),
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <FaStethoscope size={40} />
-                    <Typography
-                      variant="h6"
-                      className="mx-auto"
-                      sx={{ fontSize: "16px" }}
-                    >
-                      Total Revenue
-                    </Typography>
-                  </Box>
-                  <Typography variant="h3" sx={{ mt: 2, fontSize: "2.2rem" }}>
-                    {revenue}
-                  </Typography>
-                </Card>
-              </Grid>
-              <Grid item xs={12} sm={6} md={3} sx={{ marginLeft: "20px" }}>
-                <Card
-                  sx={{
-                    backgroundColor: theme.palette.warning.main,
-                    color: theme.palette.common.white,
-                    boxShadow: theme.shadows[4],
-                    borderRadius: theme.shape.borderRadius,
-                    padding: theme.spacing(2),
-                  }}
-                >
-                  <Box
-                    sx={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <FaBook size={40} />
-                    <Typography
-                      variant="h6"
-                      className="mx-auto"
-                      sx={{ fontSize: "16px" }}
-                    >
-                      Upcoming Bookings
-                    </Typography>
-                  </Box>
-                  <Typography variant="h3" sx={{ mt: 2, fontSize: "2.2rem" }}>
-                    {pending}
-                  </Typography>
-                </Card>
-              </Grid>
-
-              <Grid item xs={12} md={6}>
-                <Card
-                  sx={{
-                    boxShadow: theme.shadows[4],
-                    borderRadius: theme.shape.borderRadius,
-                    padding: theme.spacing(5),
-                  }}
-                >
-                  <ReactApexChart
-                    options={optionsSales}
-                    series={appointmentGraph}
-                    type="line"
-                    height={350}
-                  />
-                </Card>
-              </Grid>
+                </Box>
+                <Typography variant="h3" sx={{ mt: 2, fontSize: "2.2rem" }}>
+                  {patientCount}
+                </Typography>
+              </Card>
             </Grid>
-          </Container>
-        );
-      default:
-        return null;
+            <Grid item xs={12} sm={6} md={3}>
+              <Card
+                sx={{
+                  backgroundColor: theme.palette.secondary.main,
+                  color: theme.palette.common.white,
+                  boxShadow: theme.shadows[4],
+                  borderRadius: theme.shape.borderRadius,
+                  padding: theme.spacing(2),
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <FaStethoscope size={40} />
+                  <Typography
+                    variant="h6"
+                    className="mx-auto"
+                    sx={{ fontSize: "16px" }}
+                  >
+                      Total Revenue
+                  </Typography>
+                </Box>
+                <Typography variant="h3" sx={{ mt: 2, fontSize: "2.2rem" }}>
+                  {revenue}
+                </Typography>
+              </Card>
+            </Grid>
+            <Grid item xs={12} sm={6} md={3} sx={{ marginLeft: "20px" }}>
+              <Card
+                sx={{
+                  backgroundColor: theme.palette.warning.main,
+                  color: theme.palette.common.white,
+                  boxShadow: theme.shadows[4],
+                  borderRadius: theme.shape.borderRadius,
+                  padding: theme.spacing(2),
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <FaBook size={40} />
+                  <Typography
+                    variant="h6"
+                    className="mx-auto"
+                    sx={{ fontSize: "16px" }}
+                  >
+                      Upcoming Bookings
+                  </Typography>
+                </Box>
+                <Typography variant="h3" sx={{ mt: 2, fontSize: "2.2rem" }}>
+                  {pending}
+                </Typography>
+              </Card>
+            </Grid>
+
+            <Grid item xs={12} md={6}>
+              <Card
+                sx={{
+                  boxShadow: theme.shadows[4],
+                  borderRadius: theme.shape.borderRadius,
+                  padding: theme.spacing(5),
+                }}
+              >
+                <ReactApexChart
+                  options={optionsSales}
+                  series={appointmentGraph}
+                  type="line"
+                  height={350}
+                />
+              </Card>
+            </Grid>
+          </Grid>
+        </Container>
+      );
+    default:
+      return null;
     }
   };
 
