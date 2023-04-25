@@ -1,4 +1,3 @@
-import fetch from 'node-fetch';
 import express, { json, urlencoded } from "express";
 import logger from "morgan";
 import cookieParser from "cookie-parser";
