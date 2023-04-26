@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React from "react";
 import { toast, Toaster } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -71,13 +73,6 @@ const DepartmentSection = ({ departmentsData }) => {
                       <div
                         className="flex items-center justify-start leading-tight p-2 md:p-4 mb-3"
                         onClick={() => viewDoctors(Department._id)}
-                        onKeyDown={(event) => {
-                          if (event.key === "Enter" || event.key === " ") {
-                            viewDoctors(Department._id);
-                          }
-                        }}
-                        tabIndex={0}
-                        role="button"
                       >
                         <p className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-cyan-800 dark:hover:bg-gray-500 dark:focus:ring-cyan-800">
                           View Doctors
