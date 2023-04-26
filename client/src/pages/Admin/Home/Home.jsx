@@ -30,8 +30,9 @@ import {
   FaStethoscope,
   FaUsers,
 } from "react-icons/fa";
+import { FiLogOut } from "react-icons/fi";
 import SalesReport from "../../../components/AdminComponents/SalesReport/SalesReport";
-
+import { useNavigate } from "react-router-dom";
 const drawerWidth = 240;
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })(
@@ -118,7 +119,7 @@ function AdminHome() {
   const [adminLoad, setAdminLoad] = useState(false);
   const theme = useTheme();
   const [open, setOpen] = useState(true);
-
+  const Navigate = useNavigate();
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -132,6 +133,10 @@ function AdminHome() {
   function changeLoading(x) {
     setAdminLoad(x);
   }
+  const adminLogOut = () => {
+    localStorage.removeItem("adminToken");
+    Navigate("/admin");
+  };
   return (
     <adminLoading.Provider value={{ adminLoad, changeLoading }}>
       <sideBarContext.Provider value={{ path, changePath }}>
@@ -258,6 +263,13 @@ function AdminHome() {
                     </ListItem>
                   ))}
                 </List>
+                <button
+                  className="btn text-primary py-1 me-auto ms-1 flex"
+                  onClick={adminLogOut}
+                >
+                  Log Out
+                  <FiLogOut className="my-auto ms-2" />
+                </button>
                 <Divider />
                 {/* <List>
           {['All mail', 'Trash', 'Spam'].map((text, index) => (
