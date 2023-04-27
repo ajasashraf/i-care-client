@@ -19,22 +19,26 @@ export default function Chat() {
   const [currentChat, setCurrentChat] = useState("");
 
   // const [onUser, setOnUser] = useState("")
-
-  if (disabled === false) {
-    console.log(currentUser, "inside disabled");
-    const initialUser = {
-      // _id: "643ceea51b8a59a38151bb6e",
-      _id: currentUser._id,
-      avatarImage: "none",
-      doctorId: {
-        _id: "64367a02f7a26f60f644c3cb",
-        fullName: "Mohd Ajnas",
-        avatarImage: "none",
-      },
+  useEffect(() => {
+    const ajmalCode = () => {
+      if (disabled === false) {
+        console.log(currentUser, "inside disabled");
+        const initialUser = {
+          // _id: "643ceea51b8a59a38151bb6e",
+          _id: currentUser._id,
+          avatarImage: "none",
+          doctorId: {
+            _id: "64367a02f7a26f60f644c3cb",
+            fullName: "Mohd Ajnas",
+            avatarImage: "none",
+          },
+        };
+        setCurrentChat(initialUser);
+        // const [currentChat, setCurrentChat] = useState(initialUser);
+      }
     };
-    setCurrentChat(initialUser);
-    // const [currentChat, setCurrentChat] = useState(initialUser);
-  }
+    ajmalCode();
+  }, [currentUser]);
 
   useEffect(() => {
     const didUser = () => {
