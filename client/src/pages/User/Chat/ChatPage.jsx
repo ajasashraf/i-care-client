@@ -13,17 +13,33 @@ export default function Chat() {
   const navigate = useNavigate();
   const socket = useRef();
   const [contacts, setContacts] = useState([]);
-  const initialUser = {
-    _id: "643ceea51b8a59a38151bb6e",
-    avatarImage: "none",
-    doctorId: {
-      _id: "64367a02f7a26f60f644c3cb",
-      fullName: "Mohd Ajnas",
+  const [disabled, setDisabled] = useState(true)
+  // const [onUser, setOnUser] = useState("")
+
+  if(disabled === false) {
+    const initialUser = {
+    // _id: "643ceea51b8a59a38151bb6e",
+      _id: currentUser._id,
       avatarImage: "none",
-    },
-  };
-  const [currentChat, setCurrentChat] = useState(initialUser);
+      doctorId: {
+        _id: "64367a02f7a26f60f644c3cb",
+        fullName: "Mohd Ajnas",
+        avatarImage: "none",
+      },
+    };
+    setCurrentChat(initialUser)
+    // const [currentChat, setCurrentChat] = useState(initialUser);
+  }
+  
+  const [currentChat, setCurrentChat] = useState("");
   const [currentUser, setCurrentUser] = useState();
+
+  useEffect(()=>{
+    const didUser = () => {
+      setDisabled(false)
+    }
+    didUser()
+  },[currentUser])
 
   useEffect(() => {
     const token = { token: localStorage.getItem("userToken") };
@@ -32,7 +48,7 @@ export default function Chat() {
     } else {
       axios.post(`${chatUrl}userData`, token).then((response) => {
         setCurrentUser(response.data.data);
-        console.log(response.data.data, "server datttaa");
+        // console.log(response.data.data, "server datttaa");
         // setTimeout(() => {
         //   console.log(currentUser._id, 'currentUserrrrrrrrrrrrrr');
         // }, 2000);
