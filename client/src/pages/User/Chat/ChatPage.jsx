@@ -14,9 +14,11 @@ export default function Chat() {
   const socket = useRef();
   const [contacts, setContacts] = useState([]);
   const initialUser = {
+    _id: "643ceea51b8a59a38151bb6e",
+    avatarImage: "none",
     doctorId: {
-      _id: "643ceea51b8a59a38151bb6e",
-      firstName: "Ajnas",
+      _id: "64367a02f7a26f60f644c3cb",
+      fullName: "Mohd Ajnas",
       avatarImage: "none",
     },
   };
