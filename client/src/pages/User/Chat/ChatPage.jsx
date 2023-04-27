@@ -15,6 +15,9 @@ export default function Chat() {
   const [contacts, setContacts] = useState([]);
   const [disabled, setDisabled] = useState(true);
   const [loader, setLoader] = useState(true);
+  const [currentUser, setCurrentUser] = useState();
+  const [currentChat, setCurrentChat] = useState("");
+
   // const [onUser, setOnUser] = useState("")
 
   if (disabled === false) {
@@ -32,8 +35,6 @@ export default function Chat() {
     // const [currentChat, setCurrentChat] = useState(initialUser);
   }
 
-  const [currentChat, setCurrentChat] = useState("");
-  const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
     const didUser = () => {
