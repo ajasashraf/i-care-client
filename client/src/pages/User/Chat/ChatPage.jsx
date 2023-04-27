@@ -32,7 +32,7 @@ export default function Chat() {
     } else {
       axios.post(`${chatUrl}userData`, token).then((response) => {
         setCurrentUser(response.data.data);
-        // console.log(response.data.data._id, 'server datttaa');
+        console.log(response.data.data, "server datttaa");
         // setTimeout(() => {
         //   console.log(currentUser._id, 'currentUserrrrrrrrrrrrrr');
         // }, 2000);
