@@ -13,7 +13,10 @@ export default function Chat() {
   const navigate = useNavigate();
   const socket = useRef();
   const [contacts, setContacts] = useState([]);
-  const [currentChat, setCurrentChat] = useState();
+  const initialUser = {
+    _id: "643ceea51b8a59a38151bb6e",
+  }
+  const [currentChat, setCurrentChat] = useState(initialUser);
   const [currentUser, setCurrentUser] = useState();
 
   useEffect(() => {
