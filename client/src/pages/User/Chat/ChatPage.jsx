@@ -15,6 +15,8 @@ export default function Chat() {
   const [contacts, setContacts] = useState([]);
   const initialUser = {
     _id: "643ceea51b8a59a38151bb6e",
+    firstName: "Ajnas",
+    avatarImage: "none"
   }
   const [currentChat, setCurrentChat] = useState(initialUser);
   const [currentUser, setCurrentUser] = useState();
