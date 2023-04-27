@@ -14,10 +14,12 @@ export default function Chat() {
   const socket = useRef();
   const [contacts, setContacts] = useState([]);
   const initialUser = {
-    _id: "643ceea51b8a59a38151bb6e",
-    firstName: "Ajnas",
-    avatarImage: "none"
-  }
+    doctorId: {
+      _id: "643ceea51b8a59a38151bb6e",
+      firstName: "Ajnas",
+      avatarImage: "none",
+    },
+  };
   const [currentChat, setCurrentChat] = useState(initialUser);
   const [currentUser, setCurrentUser] = useState();
 
@@ -63,7 +65,6 @@ export default function Chat() {
   };
   return (
     <>
-      
       <Container>
         <div className="container">
           <Contacts contacts={contacts} changeChat={handleChatChange} />
@@ -86,7 +87,7 @@ const Container = styled.div`
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  background-color: rgb(22 78 99);;
+  background-color: rgb(22 78 99);
   .container {
     height: 85vh;
     width: 85vw;
