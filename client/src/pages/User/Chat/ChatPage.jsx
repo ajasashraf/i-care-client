@@ -21,6 +21,7 @@ export default function Chat() {
   // const [onUser, setOnUser] = useState("")
 
   if (disabled === false) {
+    console.log(currentUser, "inside disabled");
     const initialUser = {
       // _id: "643ceea51b8a59a38151bb6e",
       _id: currentUser._id,
@@ -35,10 +36,10 @@ export default function Chat() {
     // const [currentChat, setCurrentChat] = useState(initialUser);
   }
 
-
   useEffect(() => {
     const didUser = () => {
       setDisabled(false);
+      console.log(currentUser);
     };
     didUser();
   }, [currentUser]);
