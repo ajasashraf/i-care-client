@@ -49,7 +49,7 @@ export default function ChatContainer({ currentChat, socket }) {
         setMessages(response.data);
         console.log(response.data, 'setMessages lof');
       });
-  }, [currentChat], data);
+  }, [currentChat, data]);
 
   useEffect(() => {
     const getCurrentChat = async () => {
