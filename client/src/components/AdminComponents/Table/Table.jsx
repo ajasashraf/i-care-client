@@ -33,7 +33,7 @@ const Table = () => {
   const blockUser = (userId) => {
     const headers = { authorization: token };
     axios
-      .patch(`${adminUrl}blockUser/${userId}`, { headers })
+      .get(`${adminUrl}blockUser/${userId}`, { headers })
       .then((response) => {
         response.status === 200 && setReload((reload) => !reload);
       })
@@ -46,7 +46,7 @@ const Table = () => {
   const unBlockUser = (userId) => {
     const headers = { authorization: token };
     axios
-      .patch(`${adminUrl}unBlockUser/${userId}`, { headers })
+      .get(`${adminUrl}unBlockUser/${userId}`, { headers })
       .then((response) => {
         response.status === 200 && setReload((reload) => !reload);
       })
