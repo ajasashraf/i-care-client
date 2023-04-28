@@ -77,6 +77,10 @@ const NavItemDoctor = [
     path: "/doctor/profile",
   },
   {
+    page: "Chat",
+    path: "/doctor/chat",
+  },
+  {
     page: "About Us",
     path: "/doctor/home",
   },
@@ -119,6 +123,7 @@ export default function TemporaryDrawer() {
                 <ListItemIcon style={{ color: "#fff" }}>
                   {item.page === "Home" && <HomeIcon />}
                   {item.page === "Appoinments" && <BookmarksIcon />}
+                  {item.page === "Chat" && <ChatIcon />}
                   {item.page === "About Us" && <InfoIcon />}
                 </ListItemIcon>
                 <ListItemText primary={item.page} />
