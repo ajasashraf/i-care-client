@@ -214,7 +214,7 @@ const DoctorProfile = () => {
     };
     const headers = { Authorization: token };
     axios
-      .post(`${doctorUrl}editProfile`, { doctorData }, { headers })
+      .put(`${doctorUrl}editProfile`, { doctorData }, { headers })
       .then((response) => {
         response.status === 200 &&
           (response.data.status
@@ -368,7 +368,7 @@ const DoctorProfile = () => {
       });
   };
 
-  const renderTabContent = () => {
+  const renderTabContent = () => {  
     switch (activeTab) {
     case "profile":
       return (
