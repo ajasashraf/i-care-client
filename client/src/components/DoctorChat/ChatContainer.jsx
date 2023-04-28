@@ -47,6 +47,7 @@ export default function ChatContainer({ currentChat, socket }) {
       })
       .then((response) => {
         setMessages(response.data);
+        console.log(response.data, 'setMessages lof');
       });
   }, [currentChat], data);
 
