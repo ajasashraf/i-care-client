@@ -15,8 +15,8 @@ export default function DoctorChat() {
   const [contacts, setContacts] = useState([]);
   const [disabled, setDisabled] = useState(true);
   const [loader, setLoader] = useState(true);
-  const [currentUser, setCurrentUser] = useState("");
-  const [currentChat, setCurrentChat] = useState();
+  const [currentUser, setCurrentUser] = useState();
+  const [currentChat, setCurrentChat] = useState("");
 
   useEffect(() => {
     const Code = () => {
