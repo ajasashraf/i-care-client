@@ -7,7 +7,7 @@ import { doctorChatUrl } from "../../../api/apiLinks";
 export default function Contacts({ contacts, changeChat }) {
   const [currentUserName, setCurrentUserName] = useState(undefined);
   const [currentUserImage, setCurrentUserImage] = useState(undefined);
-  const [currentSelected, setCurrentSelected] = useState(undefined);
+  const [currentSelected, setCurrentSelected] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
