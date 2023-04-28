@@ -20,7 +20,7 @@ export default function Chat() {
 
   // const [onUser, setOnUser] = useState("")
   useEffect(() => {
-    const ajmalCode = () => {
+    const Code = () => {
       if (disabled === false) {
         console.log(currentUser, "inside disabled");
         const initialUser = {
@@ -37,7 +37,7 @@ export default function Chat() {
         // const [currentChat, setCurrentChat] = useState(initialUser);
       }
     };
-    ajmalCode();
+    Code();
   }, [currentUser]);
 
   useEffect(() => {

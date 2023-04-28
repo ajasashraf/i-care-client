@@ -31,8 +31,6 @@ export default function Contacts({ contacts, changeChat }) {
   }, []);
 
   const changeCurrentChat = (index, contact) => {
-    console.log(index, 'index in contacts');
-    console.log(contact, 'contact in contact');
     setCurrentSelected(index);
     changeChat(contact);
   };
