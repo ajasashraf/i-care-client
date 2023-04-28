@@ -95,7 +95,7 @@ function Departments() {
       reader.onloadend = () => {
         let imageData = reader.result;
         axios
-          .post(
+          .put(
             `${adminUrl}editDepartment/${depDetails._id}`,
             { departmentDetails, imageData },
             { headers }
@@ -120,7 +120,7 @@ function Departments() {
       };
     } else {
       axios
-        .post(
+        .put(
           `${adminUrl}editDepartment/${depDetails._id}`,
           { departmentDetails },
           { headers }
