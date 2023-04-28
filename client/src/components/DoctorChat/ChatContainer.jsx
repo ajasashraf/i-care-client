@@ -38,7 +38,7 @@ export default function ChatContainer({ currentChat, socket }) {
     // const data = await JSON.parse(
     //   localStorage.getItem('chatToken')
     // );
-    console.log(currentChat._id, "from   _IDDDDD");
+    console.log(currentChat, "from   _IDDDDD");
 
     axios
       .post(recieveMessageRoute, {
