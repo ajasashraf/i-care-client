@@ -17,6 +17,7 @@ import LoginIcon from "@mui/icons-material/Login";
 import WalletIcon from "@mui/icons-material/Wallet";
 import HowToRegIcon from "@mui/icons-material/HowToReg";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ChatIcon from "@mui/icons-material/Chat";
 import LogoutIcon from "@mui/icons-material/Logout";
 import "./sideBar.css";
 import { userContext } from "../../store/Contexts";
@@ -34,6 +35,10 @@ const NavItems = [
   {
     page: "Wallet",
     path: "/wallet",
+  },
+  {
+    page: "Chat",
+    path: "/chat",
   },
   {
     page: "About",
@@ -132,6 +137,7 @@ export default function TemporaryDrawer() {
                   {item.page === "Home" && <HomeIcon />}
                   {item.page === "Departments" && <VaccinesIcon />}
                   {item.page === "Wallet" && <WalletIcon />}
+                  {item.page === "Chat" && <ChatIcon />}
                   {item.page === "About" && <InfoIcon />}
                 </ListItemIcon>
                 <ListItemText primary={item.page} />
