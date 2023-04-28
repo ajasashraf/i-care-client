@@ -267,7 +267,7 @@ const DoctorProfile = () => {
     const headers = { Authorization: token };
     let data = docDetails.timings[index];
     axios
-      .post(`${doctorUrl}deleteSlot`, { data }, { headers })
+      .delete(`${doctorUrl}deleteSlot`, { data }, { headers })
       .then((response) => {
         response.status === 200 &&
           (response.data.status
