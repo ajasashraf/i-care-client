@@ -77,7 +77,7 @@ const Profile = () => {
     phone && (updatedData.phone = phone);
     address && (updatedData.address = address);
     axios
-      .post(`${userUrl}editProfile`, updatedData, { headers })
+      .put(`${userUrl}editProfile`, updatedData, { headers })
       .then((response) => {
         response.status === 200 && toast.success("edited successfully");
         response.status === 200 && setResetPage((resetPage) => !resetPage);
