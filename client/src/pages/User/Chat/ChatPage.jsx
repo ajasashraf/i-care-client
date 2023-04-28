@@ -28,8 +28,8 @@ export default function Chat() {
           _id: currentUser._id,
           avatarImage: "none",
           doctorId: {
-            _id: "64367a02f7a26f60f644c3cb",
-            fullName: "Mohd Ajnas",
+            _id: "643540c741f7d031d65132ea",
+            fullName: "Ajas",
             avatarImage: "none",
           },
         };
