@@ -17,7 +17,6 @@ export default function DoctorChat() {
   const [loader, setLoader] = useState(true);
   const [currentUser, setCurrentUser] = useState("");
   const [currentChat, setCurrentChat] = useState();
-  
 
   useEffect(() => {
     const Code = () => {
@@ -97,20 +96,25 @@ export default function DoctorChat() {
     console.log(chat, "chatttttttttttttttt");
     setCurrentChat(chat);
   };
-  
+
   return (
     <>
-      
-      <Container>
-        <div className="container">
-          <Contacts contacts={contacts} changeChat={handleChatChange} />
-          {currentChat === undefined ? (
-            <Welcome />
-          ) : (
-            <ChatContainer currentChat={currentChat} socket={socket} />
-          )}
-        </div>
-      </Container>
+      {loader ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          <Container>
+            <div className="container">
+              <Contacts contacts={contacts} changeChat={handleChatChange} />
+              {currentChat === undefined ? (
+                <Welcome />
+              ) : (
+                <ChatContainer currentChat={currentChat} socket={socket} />
+              )}
+            </div>
+          </Container>
+        </>
+      )}
     </>
   );
 }
@@ -123,7 +127,7 @@ const Container = styled.div`
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  background-color: rgb(22 78 99);;
+  background-color: rgb(22 78 99);
   .container {
     height: 85vh;
     width: 85vw;
