@@ -38,7 +38,7 @@ export default function ChatContainer({ currentChat, socket }) {
     // const data = await JSON.parse(
     //   localStorage.getItem('chatToken')
     // );
-    console.log(currentChat, "from   _IDDDDD");
+    console.log(currentChat._id, "from   _IDDDDD");
 
     axios
       .post(recieveMessageRoute, {
@@ -47,9 +47,8 @@ export default function ChatContainer({ currentChat, socket }) {
       })
       .then((response) => {
         setMessages(response.data);
-        console.log(response.data, 'setMessages lof');
       });
-  }, [currentChat, data]);
+  }, [currentChat]);
 
   useEffect(() => {
     const getCurrentChat = async () => {

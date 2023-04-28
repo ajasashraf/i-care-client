@@ -13,49 +13,10 @@ export default function DoctorChat() {
   const navigate = useNavigate();
   const socket = useRef();
   const [contacts, setContacts] = useState([]);
-  const [disabled, setDisabled] = useState(true);
-  const [loader, setLoader] = useState(true);
+  const [currentChat, setCurrentChat] = useState();
   const [currentUser, setCurrentUser] = useState();
-  const [currentChat, setCurrentChat] = useState("");
 
-  useEffect(() => {
-    const Code = () => {
-      if (disabled === false) {
-        console.log(currentUser, "inside disabled");
-        const initialUser = {
-          // _id: "643ceea51b8a59a38151bb6e",
-          _id: currentUser._id,
-          avatarImage: "none",
-          patientId: {
-            _id: "643636bcbb84d1dff0cf89ed",
-            fullName: "Faris",
-            avatarImage: "none",
-          },
-        };
-        setCurrentChat(initialUser);
-        // const [currentChat, setCurrentChat] = useState(initialUser);
-      }
-    };
-    Code();
-  }, [currentUser]);
-
-  useEffect(() => {
-    const didUser = () => {
-      setDisabled(false);
-      console.log(currentUser);
-    };
-    didUser();
-  }, [currentUser]);
-
-  useEffect(() => {
-    const didUser = () => {
-      setTimeout(() => {
-        setLoader(false);
-      }, 1000);
-    };
-    didUser();
-  }, [disabled]);
-
+  console.log(currentChat,'current chat');
   useEffect(() => {
     const token = { token: localStorage.getItem("doctorToken") };
     if (!localStorage.getItem("doctorToken")) {
@@ -96,25 +57,20 @@ export default function DoctorChat() {
     console.log(chat, "chatttttttttttttttt");
     setCurrentChat(chat);
   };
-
+  
   return (
     <>
-      {loader ? (
-        <div>Loading...</div>
-      ) : (
-        <>
-          <Container>
-            <div className="container">
-              <Contacts contacts={contacts} changeChat={handleChatChange} />
-              {currentChat === undefined ? (
-                <Welcome />
-              ) : (
-                <ChatContainer currentChat={currentChat} socket={socket} />
-              )}
-            </div>
-          </Container>
-        </>
-      )}
+      
+      <Container>
+        <div className="container">
+          <Contacts contacts={contacts} changeChat={handleChatChange} />
+          {currentChat === undefined ? (
+            <Welcome />
+          ) : (
+            <ChatContainer currentChat={currentChat} socket={socket} />
+          )}
+        </div>
+      </Container>
     </>
   );
 }
@@ -127,7 +83,7 @@ const Container = styled.div`
   justify-content: center;
   gap: 1rem;
   align-items: center;
-  background-color: rgb(22 78 99);
+  background-color: rgb(22 78 99);;
   .container {
     height: 85vh;
     width: 85vw;
