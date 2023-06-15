@@ -4,8 +4,8 @@
 // export const chatUrl = "http://localhost:2000/chat/";
 // export const doctorChatUrl = "http://localhost:2000/doctor/chat/";
 
-export const userUrl = "https://www.i-care.tech/";
-export const doctorUrl = "https://www.i-care.tech/doctor/";
-export const adminUrl = "https://www.i-care.tech/admin/";
-export const chatUrl = "https://www.i-care.tech/chat/";
-export const doctorChatUrl = "https://www.i-care.tech/doctor/chat/";
+export const userUrl = "https://icare-backend-gn76.onrender.com";
+export const doctorUrl = "hhttps://icare-backend-gn76.onrender.com/doctor/";
+export const adminUrl = "https://icare-backend-gn76.onrender.com/admin/";
+export const chatUrl = "https://icare-backend-gn76.onrender.com/chat/";
+export const doctorChatUrl = "https://icare-backend-gn76.onrender.com/chat/";

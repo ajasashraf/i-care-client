@@ -1,4 +1,4 @@
-export const host = "https://www.i-care.tech";
+export const host = "https://icare-backend-gn76.onrender.com";
 export const loginRoute = `${host}/chat/login`;
 export const registerRoute = `${host}/chat/register`;
 export const logoutRoute = `${host}/chat/logout`;
