@@ -55,7 +55,9 @@ const SignInForm = () => {
         response.data.noUser &&
           toast.error("No user in this email please sign up");
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error(err);
+
         toast.error("some unexpected errors please try after some time");
       })
       .finally(() => {
@@ -82,7 +84,8 @@ const SignInForm = () => {
         response.data.status === "block" &&
           toast.error("Your acount is blocked");
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error(err);
         toast.error("some unexpected errors please try after some time");
       })
       .finally(() => setLoading(false));
@@ -99,7 +102,9 @@ const SignInForm = () => {
             ? toast.error("invalid email")
             : toast.error("sending otp failed");
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error(err);
+
         toast.error("some unexpected errors please try after some time");
       })
       .finally(() => setLoading(false));
@@ -114,7 +119,9 @@ const SignInForm = () => {
           ? setSignInForm("client")
           : toast.error("invalid otp");
       })
-      .catch(() => {
+      .catch((err) => {
+        console.error(err);
+
         toast.error("some unexpected errors please try after some time");
       })
       .finally(() => setLoading(false));
@@ -132,7 +139,9 @@ const SignInForm = () => {
           }
           response.data.block && toast.error("your acount is blocked");
         })
-        .catch(() => {
+        .catch((err) => {
+          console.error(err);
+
           toast.error("some unexpected errors please try after some time");
         })
         .finally(() => setLoading(false));
