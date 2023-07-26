@@ -8,4 +8,4 @@ export const userUrl = "https://icare-backend-gn76.onrender.com/";
 export const doctorUrl = "https://icare-backend-gn76.onrender.com/doctor/";
 export const adminUrl = "https://icare-backend-gn76.onrender.com/admin/";
 export const chatUrl = "https://icare-backend-gn76.onrender.com/chat/";
-export const doctorChatUrl = "https://icare-backend-gn76.onrender.com/chat/doctor";
+export const doctorChatUrl = "https://icare-backend-gn76.onrender.com/doctor";
